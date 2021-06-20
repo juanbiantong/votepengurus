@@ -92,10 +92,10 @@ export default function VotePage() {
 			{/* table voting */}
 			<div className="row justify-content-center w-100 mx-auto">
 				<div className="col-md-12 fixed-top mt-2">
-					<div className="card">
-						<div className="card card-widget widget-user-2 m-0">
+					<div className="card border-radius-15">
+						<div className="card card-widget widget-user-2 m-0 border-radius-15">
 							{/* Add the bg color to the header using any of the bg-* classes */}
-							<div className="widget-user-header bg-cust p-2">
+							<div className="widget-user-header bg-cust p-2 border-top-radius-15">
 								<div className="widget-user-image">
 									<img
 										className="img-circle elevation-2 mr-3"
@@ -273,7 +273,7 @@ export default function VotePage() {
 					</div>
 				</div>
 			</div>
-			<Footer/>
+			
 		</Fragment>
 	);
 }

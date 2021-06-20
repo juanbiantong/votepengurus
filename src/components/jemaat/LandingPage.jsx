@@ -39,7 +39,7 @@ export default function LandingPage() {
 				{/* Main content */}
 				<div className="content">
 					<div className="container-fluid">
-						<div className="row d-flex justify-content-center bg-cust2 pt-3 table-radius-10">
+						<div className="row d-flex justify-content-center bg-cust2 pt-3 border-radius-10">
 							{/* section penatua */}
 							<div className="col-lg-5">
 								<div className="card card-primary card-outline">
