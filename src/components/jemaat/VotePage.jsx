@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Fragment, useState, useEffect } from 'react';
+import $ from 'jquery';
 
 export default function VotePage() {
 	const [data, setData] = useState([]);
@@ -13,8 +14,78 @@ export default function VotePage() {
 		};
 		fetchData();
 	}, []);
-
 	console.log(data, 'data');
+
+	const buttonSubmit = () => {
+		window.location.reload();
+	};
+
+	const handleCheckbox = (even) => {
+		data.map((d, index) => {
+			if (`${d.id}a` === even.target.name) {
+				let tmp_array = data;
+				if (even.target.value === 'penatua' && even.target.checked) {
+					tmp_array[index].penatua = 1;
+					tmp_array[index].diaken = 0;
+					setData(tmp_array);
+				} else {
+					tmp_array[index].penatua = 0;
+					setData(tmp_array);
+				}
+			}
+			if (`${d.id}b` === even.target.name) {
+				let tmp_array = data;
+				if (even.target.value === 'diaken' && even.target.checked) {
+					tmp_array[index].diaken = 1;
+					tmp_array[index].penatua = 0;
+					setData(tmp_array);
+				} else {
+					tmp_array[index].diaken = 0;
+					setData(tmp_array);
+				}
+			}
+			return d;
+		});
+		setTotalPenatua(
+			data.filter((item) => {
+				return item.penatua;
+			}).length
+		);
+		setTotalDiaken(
+			data.filter((item) => {
+				return item.diaken;
+			}).length
+		);
+	};
+
+	data.map((d) => {
+		return $(function () {
+			$(`.${d.id}vote`).click(function (e) {
+				$(`.${d.id}vote`).not(this).prop('checked', false);
+			});
+		});
+	});
+	$(document).ready(function () {
+		$(function () {
+			$('.sektor').click(function (e) {
+				let value = $(this).val();
+				$('#myTable tr').filter(function () {
+					return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+				});
+			});
+		});
+		$('#myInput').on('keyup', function () {
+			let value = $(this).val().toLowerCase();
+			$('#myTable tr').filter(function () {
+				return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+			});
+		});
+		$('.clear').on('click', function () {
+			$('#myTable tr').filter(function () {
+				return $(this).toggle($(this).text().toLowerCase().indexOf('') > -1);
+			});
+		});
+	});
 	return (
 		<Fragment>
 			{/* table voting */}
@@ -40,12 +111,12 @@ export default function VotePage() {
 									<li className="nav-item ">
 										<strong className="mr-2 ml-2 p-0 float-right">
 											Total Penatua yang anda pilih{' '}
-											<span className="badge bg-warning m-1">31</span> Orang
+											<span className="badge bg-warning m-1">{totalPenatua}</span> Orang
 										</strong>
 									</li>
 									<li className="nav-item">
 										<strong className="mr-2 ml-2 p-0 float-right">
-											Total Diaken yang anda pilih <span className="badge bg-warning m-1">5</span>{' '}
+											Total Diaken yang anda pilih <span className="badge bg-warning m-1">{totalDiaken}</span>{' '}
 											Orang
 										</strong>
 									</li>
@@ -111,14 +182,15 @@ export default function VotePage() {
 						</div>
 						<div className="row custom m-1 justify-content-center pb-3 pr-1 pl-1 bg-cust2">
 							<div className="card-header col-md-10 pt-0 pb-0 mt-2 mb-0">
-								<h6 className="float-left text-bold">DAFTAR CALON</h6>
+								<h6 className="float-left text-bold text-white">DAFTAR CALON</h6>
 								<div className="card-tools">
-									<div className="input-group input-group-sm seacch-width">
+									<div className="input-group input-group-sm search-width">
 										<input
 											type="text"
 											name="table_search"
+											id="myInput" 
 											className="form-control float-right"
-											placeholder="Search"
+											placeholder="Cari nama atau sektor calon.."
 										/>
 										<div className="input-group-append">
 											<button type="submit" className="btn btn-default">
@@ -129,22 +201,20 @@ export default function VotePage() {
 								</div>
 							</div>
 							{/* /.card-header */}
-							<div
-								className="card-body table-responsive p-0 col-md-10 table-height"
-							>
+							<div className="card-body table-responsive p-0 col-md-10 table-height">
 								<table className="table tableFixHead table-bordered table-striped table-xs">
 									<thead className="m-0 ">
 										<tr>
 											<th className="p-1 m-0">Nama Lengkap</th>
 											<th className="p-1 m-0">Skt</th>
-											<th className="p-1 m-0">Jabatan</th>
+											<th className="p-1 m-0 text-center">Jabatan</th>
 										</tr>
 									</thead>
 									<tbody id="myTable">
 										{data.map((item, i) => {
 											return (
 												<Fragment key={i}>
-													<tr style={{width:"100%"}}>
+													<tr style={{ width: '100%' }}>
 														{/* <td style={{ width: '2%', textAlign: 'center' }}>{item.id}</td> */}
 														<td className="p-1 m-0" style={{ width: '43%' }}>
 															{item.name}
@@ -168,7 +238,7 @@ export default function VotePage() {
 																	<input
 																		type="checkbox"
 																		name={`${item.id}a`}
-																		// onChange={handleCheckbox}
+																		onChange={handleCheckbox}
 																		className={`${item.id}vote`}
 																		value="penatua"
 																	/>
@@ -178,7 +248,7 @@ export default function VotePage() {
 																	<input
 																		type="checkbox"
 																		name={`${item.id}b`}
-																		// onChange={handleCheckbox}
+																		onChange={handleCheckbox}
 																		className={`${item.id}vote`}
 																		value="diaken"
 																	/>
@@ -202,7 +272,7 @@ export default function VotePage() {
 					</div>
 
 					<div>
-						<footer className="main-footer">
+						<footer className="main-footer bg-primary">
 							<strong>Copyright ©saleKo&lt;de&gt; 2021.</strong> All rights reserved.
 						</footer>
 					</div>

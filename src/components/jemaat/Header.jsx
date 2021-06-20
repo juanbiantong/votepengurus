@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
 	return (
 		<div>
-			<nav className="main-header navbar navbar-expand navbar-white navbar-light m-0" >
+			<nav className="main-header navbar navbar-expand navbar-white navbar-light m-0 bg-cust2" >
 				{/* Left navbar links */}
 				<ul className="navbar-nav">
 					<li className="nav-item">

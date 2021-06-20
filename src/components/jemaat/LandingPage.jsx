@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import { BsFillGridFill, BsStopFill } from 'react-icons/bs';
+import Footer from './Footer';
 
 export default function LandingPage() {
 	return (
@@ -38,11 +39,11 @@ export default function LandingPage() {
 				{/* Main content */}
 				<div className="content">
 					<div className="container-fluid">
-						<div className="row d-flex justify-content-center">
+						<div className="row d-flex justify-content-center bg-cust2 pt-3 table-radius-10">
 							{/* section penatua */}
 							<div className="col-lg-5">
 								<div className="card card-primary card-outline">
-									<div className="card-header d-flex justify-content-between p-2">
+									<div className="card-header d-flex justify-content-between p-1">
 										<button
 											type="button"
 											class="btn btn-primary btn-xs flex-end"
@@ -332,6 +333,7 @@ export default function LandingPage() {
 					{/* /.container-fluid */}
 				</div>
 			</div>
+			<Footer/>
 		</div>
 	);
 }
