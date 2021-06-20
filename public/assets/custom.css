@@ -1,0 +1,92 @@
+.nav-cust {
+	background: linear-gradient(90deg, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+}
+
+.main-footer {
+	text-align: center;
+	margin: 0 auto !important;
+	font-size: 10px !important;
+}
+
+.custom {
+	border-radius: 10px !important;
+	-webkit-box-shadow: 0px 10px 13px -7px #565388, 0px 0px 50px 5px rgba(87, 53, 209, 0) !important;
+	box-shadow: 0px 10px 13px -7px #443bbb, 0px 0px 50px 5px rgba(87, 53, 209, 0) !important;
+}
+
+.custom2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	line-height: 100%;
+}
+
+.table-height {
+	height: 48vh !important;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.seacch-width {
+	width: 40vw !important;
+}
+
+.bg-cust {
+	background: linear-gradient(50deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 20%, rgba(0, 212, 255, 1) 100%);
+}
+.bg-cust2 {
+	background: linear-gradient(90deg, rgba(2, 0, 36, 0.1) 0%, rgba(9, 9, 121, 0.8) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+.submit-btn {
+	width: 100% !important;
+	padding: 11px !important;
+	color: #fff !important;
+	font-size: 15px !important;
+	font-weight: 600 !important;
+	border: none !important;
+	border-radius: 100px 100px 100px 100px !important;
+	cursor: pointer !important;
+	transition: all, 240ms ease-in-out !important;
+	background: rgb(2, 0, 36) !important;
+	background: linear-gradient(90deg, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%) !important;
+}
+.submit-btn:hover {
+	filter: brightness(1.03) !important;
+	border: none !important;
+	cursor: pointer !important;
+}
+.submit-btn:active {
+	font-size: 1rem !important;
+	transform: scale(0.6) !important;
+	box-shadow: 0 3px 15px -2px !important;
+}
+.submit-btn:focus {
+	outline: none !important;
+}
+.table-radius-10 {
+	border-radius: 2px solid red !important;
+	border-radius: 10px;
+}
+
+/* tr:first-child
+{
+  background-color: red;
+} */
+.tableFixHead {
+	overflow: auto;
+	height: 100px;
+}
+.tableFixHead thead th {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+th {
+	background: #eee;
+}
