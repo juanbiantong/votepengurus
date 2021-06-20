@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useState, useEffect } from 'react';
 import $ from 'jquery';
+import Footer from './Footer';
 
 export default function VotePage() {
 	const [data, setData] = useState([]);
@@ -87,10 +88,10 @@ export default function VotePage() {
 		});
 	});
 	return (
-		<Fragment>
+		<Fragment className="content-wrapper">
 			{/* table voting */}
-			<div className="row justify-content-center mt-2">
-				<div className="col-md-12 mx-auto" style={{ position: 'fixed', height: '100vh' }}>
+			<div className="row justify-content-center w-100 mx-auto">
+				<div className="col-md-12 fixed-top mt-2">
 					<div className="card">
 						<div className="card card-widget widget-user-2 m-0">
 							{/* Add the bg color to the header using any of the bg-* classes */}
@@ -270,15 +271,9 @@ export default function VotePage() {
 							</div>
 						</div>
 					</div>
-
-					<div>
-						<footer className="main-footer bg-primary">
-							<strong>Copyright ©saleKo&lt;de&gt; 2021.</strong> All rights reserved.
-						</footer>
-					</div>
 				</div>
 			</div>
-			{/* /.row */}
+			<Footer/>
 		</Fragment>
 	);
 }

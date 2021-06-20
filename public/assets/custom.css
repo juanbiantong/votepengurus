@@ -6,6 +6,11 @@
 	text-align: center;
 	margin: 0 auto !important;
 	font-size: 10px !important;
+	position: fixed;
+	width: 100%;
+	padding: 0;
+	bottom: 0;
+	z-index: -1;
 }
 
 .custom {
@@ -34,6 +39,9 @@
 
 .bg-cust {
 	background: linear-gradient(50deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 20%, rgba(0, 212, 255, 1) 100%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
 }
 .bg-cust2 {
 	background: linear-gradient(90deg, rgba(2, 0, 36, 0.1) 0%, rgba(9, 9, 121, 0.8) 0%, rgba(0, 212, 255, 1) 100%);
