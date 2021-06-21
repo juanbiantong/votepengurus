@@ -19,10 +19,10 @@ export default function Menu() {
 					{/* Sidebar user panel (optional) */}
 					<div className="user-panel mt-3 pb-3 mb-3 d-flex">
 						<div className="image">
-							<img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
+							<img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User" />
 						</div>
 						<div className="info">
-							<a href="#" className="d-block">
+							<a href=" " className="d-block">
 								Alexander Pierce
 							</a>
 						</div>
@@ -38,7 +38,7 @@ export default function Menu() {
 							{/* Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library */}
 							<li className="nav-item has-treeview menu-open">
-								<a href="#" className="nav-link active">
+								<a href=" " className="nav-link active">
 									<i className="nav-icon fas fa-tachometer-alt" />
 									<p>
 										Dashboard
