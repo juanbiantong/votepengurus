@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useState, useEffect } from 'react';
 import $ from 'jquery';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 export default function VotePage() {
 	const [data, setData] = useState([]);

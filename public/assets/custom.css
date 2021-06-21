@@ -26,9 +26,15 @@
 }
 
 .table-height {
-	height: 48vh !important;
+	height: 55vh !important;
 	border-radius: 10px;
 	background: #fff;
+}
+
+@media screen and (max-width: 320px) {
+	.table-height {
+		height: 48vh !important;
+	}
 }
 
 .search-width {
