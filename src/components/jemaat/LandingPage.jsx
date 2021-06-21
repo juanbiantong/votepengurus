@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { BsFillGridFill, BsStopFill } from 'react-icons/bs';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
 	return (
@@ -19,10 +20,9 @@ export default function LandingPage() {
 								<h4 className="m-0 text-dark">Aplikasi Pemilihan Penatua dan Diaken</h4>
 								<div>
 									<p className="fs-5 col-md-12">
-										Selamat datang di website pemilihan Gereja Toraja Jemaat Depok 2021-2024. Ini
-										adalah halaman rekomendasi bakal calon. Silahkan memilih{' '}
-										<strong>72 Nama</strong> yang anda inginkan calonkan sebagai majelis dengan
-										komposisi <strong>42 Penatua</strong> dan <strong>30 Diaken</strong>
+										Selamat datang di website pemilihan Penatua dan Diaken Gereja Toraja Jemaat Depok 2021-2024. Ini
+										adalah halaman rekomendasi bakal calon. Silahkan memilih <strong>72 Nama</strong> yang anda inginkan calonkan sebagai majelis dengan
+										komposisi <strong>42 Penatua</strong> dan <strong>30 Diaken</strong>.
 									</p>
 								</div>
 								<div className="col-md-12">
@@ -39,7 +39,7 @@ export default function LandingPage() {
 				{/* Main content */}
 				<div className="content">
 					<div className="container-fluid">
-						<div className="row d-flex justify-content-center bg-cust2 pt-3 border-radius-10">
+						<div className="row d-flex justify-content-center bg-cust2 pt-3 border-radius-15">
 							{/* section penatua */}
 							<div className="col-lg-5">
 								<div className="card card-primary card-outline">
@@ -326,7 +326,7 @@ export default function LandingPage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<btn className="btn submit-btn mx-auto p-1 m-0 justify-content-center">Lanjutkan</btn>
+								<Link className="btn submit-btn mx-auto p-1 m-0 justify-content-center" to="/votepage">Lanjutkan</Link>
 							</div>
 						</div>
 					</div>

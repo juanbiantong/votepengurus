@@ -4,7 +4,7 @@ import LandingPage from './LandingPage';
 import VotePage from './VotePage';
 import ConfirmPage from './ConfirmPage';
 import ResultPage from './ResultPage';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function Jemaat() {
   return (

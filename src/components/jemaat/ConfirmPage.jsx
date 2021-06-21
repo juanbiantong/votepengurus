@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ConfirmPage() {
 	return (
@@ -60,9 +61,9 @@ export default function ConfirmPage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<btn className="btn submit-btn mx-auto p-1 m-0 justify-content-center">
+								<Link className="btn submit-btn mx-auto p-1 m-0 justify-content-center" to="/resultpage">
 									Tutup Aplikasi
-								</btn>
+								</Link>
 							</div>
 						</div>
 					</div>

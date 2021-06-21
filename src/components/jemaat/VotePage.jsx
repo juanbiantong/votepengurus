@@ -1,7 +1,8 @@
-import axios from 'axios';
 import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 import $ from 'jquery';
 // import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 export default function VotePage() {
 	const [data, setData] = useState([]);
@@ -10,16 +11,12 @@ export default function VotePage() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const res = await axios.get('http://localhost:3000/anggota');
+			const res = await axios.get('https://my-json-server.typicode.com/JuanBiantong/db_anggota/anggota');
 			setData(res.data);
 		};
 		fetchData();
 	}, []);
-	console.log(data, 'data');
 
-	const buttonSubmit = () => {
-		window.location.reload();
-	};
 
 	const handleCheckbox = (even) => {
 		data.map((d, index) => {
@@ -267,13 +264,12 @@ export default function VotePage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<btn className="btn submit-btn mx-auto p-1 m-0 justify-content-center">Vote</btn>
+								<Link className="btn submit-btn mx-auto p-1 m-0 justify-content-center" to="/confirmpage">Vote</Link>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
 		</Fragment>
 	);
 }
