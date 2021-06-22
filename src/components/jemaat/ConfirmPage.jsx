@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ConfirmPage() {
 	return (
-		<Fragment className="content-wrapper">
+		<div className="content-wrapper">
 			{/* table voting */}
 			<div className="row justify-content-center w-100">
 				<div className="col-md-12 fixed-top mx-auto mt-2">
@@ -69,6 +69,6 @@ export default function ConfirmPage() {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</div>
 	);
 }

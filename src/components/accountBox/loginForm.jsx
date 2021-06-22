@@ -3,6 +3,7 @@ import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton }
 import { Marginer } from '../marginer';
 import { AccountContext } from './index';
 import { BsFillForwardFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 import { AuthContext } from '../../App';
@@ -26,13 +27,9 @@ export function LoginForm(props) {
 		setData({
 			...data,
 			[event.target.name]: event.target.value,
-      
 		});
-    
 	};
-	const buttonSubmit = () => {
-		window.location.reload();
-	}
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		setData({
@@ -78,8 +75,8 @@ export function LoginForm(props) {
 		<BoxContainer>
 			<FormContainer onSubmit={handleSubmit}>
 				<Input
-          type="number"
-          id="hohp"
+					type="number"
+					id="hohp"
 					onChange={handleInputChange}
 					value={data.nohp}
 					name="nohp"
@@ -101,7 +98,11 @@ export function LoginForm(props) {
 				{/* <SubmitButton disabled={data.isSubmitting} type="submit">
 					{data.isSubmitting ? '...Loading' : 'Lanjutkan'}
 				</SubmitButton> */}
-				<SubmitButton type="submit" onClick={buttonSubmit}>{data.isSubmitting ? '...Loading' : 'Lanjutkan'}</SubmitButton>
+				<Link to="/landingpage">
+					<SubmitButton className="submit-btn" to="/landingpage" type="submit">
+						{data.isSubmitting ? '...Loading' : 'Lanjutkan'}
+					</SubmitButton>
+				</Link>
 				{data.errorMessage ? <div>{data.errorMessage}</div> : null}
 			</FormContainer>
 

@@ -85,7 +85,7 @@ export default function VotePage() {
 		});
 	});
 	return (
-		<Fragment className="content-wrapper">
+		<div className="content-wrapper">
 			{/* table voting */}
 			<div className="row justify-content-center w-100 mx-auto">
 				<div className="col-md-12 fixed-top mt-2">
@@ -270,6 +270,6 @@ export default function VotePage() {
 					</div>
 				</div>
 			</div>
-		</Fragment>
+		</div>
 	);
 }

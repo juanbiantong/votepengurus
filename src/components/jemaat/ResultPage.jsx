@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 export default function ResultPage() {
 	const [data, setData] = useState([]);
@@ -11,7 +12,6 @@ export default function ResultPage() {
 		};
 		fetchData();
 	}, []);
-	console.log(data, 'data');
 
 	const totalPenatua = data.filter((item) => {
 		return item.penatua;
@@ -167,7 +167,7 @@ export default function ResultPage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<btn className="btn submit-btn mx-auto p-1 m-0 justify-content-center">Keluar</btn>
+								<Link to="/admin" className="btn submit-btn mx-auto p-1 m-0 justify-content-center">Keluar</Link>
 							</div>
 						</div>
 					</div>

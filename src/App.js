@@ -2,7 +2,7 @@ import React, { useReducer, createContext } from 'react';
 import Admin from "./components/admin/Admin";
 import Jemaat from "./components/jemaat/Jemaat";
 import { AccountBox } from "./components/accountBox";
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 export const AuthContext = createContext();
 const initiaState = {
@@ -47,21 +47,14 @@ function App() {
             dispatch,
           }}
         >
-          {state.isAuthenticated ? (
-            <Redirect
-              to={{
-                pathname: '/',
-              }}
-            />
-          ) : (
-            <Redirect
-              to={{
-                pathname: 'landingpage',
-              }}
-            />
-          ) ? (<Route exact path="/admin" component={Admin} />) : ""}
+
           <Route exact path="/" component={AccountBox} />
-          <Route exact path="/landingpage" component={Jemaat} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/landingpage" component={Jemaat}></Route>
+          <Route exact path="/votepage" component={Jemaat}></Route>
+          <Route exact path="/confirmpage" component={Jemaat}></Route>
+          <Route exact path="/resultpage" component={Jemaat}></Route>
+
         </AuthContext.Provider>
       </Switch>
     </Router>

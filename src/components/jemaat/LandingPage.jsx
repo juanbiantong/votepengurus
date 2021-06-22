@@ -46,12 +46,12 @@ export default function LandingPage() {
 									<div className="card-header d-flex justify-content-between p-1">
 										<button
 											type="button"
-											class="btn btn-primary btn-xs flex-end"
+											className="btn btn-primary btn-xs flex-end"
 											data-card-widget="collapse"
 											data-toggle="tooltip"
 											title="Collapse"
 										>
-											<i class="fas fa-minus"></i>
+											<i className="fas fa-minus"></i>
 										</button>
 										<h5 className="m-0">
 											<strong>Penatua</strong>
@@ -180,12 +180,12 @@ export default function LandingPage() {
 									<div className="card-header d-flex justify-content-between p-2">
 										<button
 											type="button"
-											class="btn btn-primary btn-xs flex-end"
+											className="btn btn-primary btn-xs flex-end"
 											data-card-widget="collapse"
 											data-toggle="tooltip"
 											title="Collapse"
 										>
-											<i class="fas fa-minus"></i>
+											<i className="fas fa-minus"></i>
 										</button>
 										<h5 className="m-0">
 											<strong>Diaken</strong>
