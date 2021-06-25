@@ -44,6 +44,7 @@ export default function VotePage() {
 			}
 			return d;
 		});
+
 		setTotalPenatua(
 			data.filter((item) => {
 				return item.penatua;
@@ -57,10 +58,23 @@ export default function VotePage() {
 	};
 
 	data.map((d) => {
-		return $(function () {
+		return $(function (event) {
 			$(`.${d.id}vote`).click(function (e) {
 				$(`.${d.id}vote`).not(this).prop('checked', false);
 			});
+		
+			if(totalPenatua===10){
+				$(`#penatua${d.id}:not(:checked)`).attr('disabled', 'disabled');	
+				
+			}else {
+				 $(`#penatua${d.id}`).removeAttr('disabled');
+			}
+
+			if (totalDiaken === 5) {
+				$(`#diaken${d.id}:not(:checked)`).attr('disabled', 'disabled');
+			} else {
+				$(`#diaken${d.id}`).removeAttr('disabled');
+			}
 		});
 	});
 	$(document).ready(function () {
@@ -114,8 +128,8 @@ export default function VotePage() {
 									</li>
 									<li className="nav-item">
 										<strong className="mr-2 ml-2 p-0 float-right">
-											Total Diaken yang anda pilih <span className="badge bg-warning m-1">{totalDiaken}</span>{' '}
-											Orang
+											Total Diaken yang anda pilih{' '}
+											<span className="badge bg-warning m-1">{totalDiaken}</span> Orang
 										</strong>
 									</li>
 									<li className="nav-item mx-auto m-1 p-1">
@@ -186,7 +200,7 @@ export default function VotePage() {
 										<input
 											type="text"
 											name="table_search"
-											id="myInput" 
+											id="myInput"
 											className="form-control float-right"
 											placeholder="Cari nama atau sektor calon.."
 										/>
@@ -234,6 +248,7 @@ export default function VotePage() {
 															<form className="custom2">
 																<div>
 																	<input
+																		id={`penatua${item.id}`}
 																		type="checkbox"
 																		name={`${item.id}a`}
 																		onChange={handleCheckbox}
@@ -244,6 +259,7 @@ export default function VotePage() {
 																</div>
 																<div>
 																	<input
+																		id={`diaken${item.id}`}
 																		type="checkbox"
 																		name={`${item.id}b`}
 																		onChange={handleCheckbox}
@@ -264,7 +280,12 @@ export default function VotePage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<Link className="btn submit-btn mx-auto p-1 m-0 justify-content-center" to="/confirmpage">Vote</Link>
+								<Link
+									className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
+									to="/confirmpage"
+								>
+									Vote
+								</Link>
 							</div>
 						</div>
 					</div>

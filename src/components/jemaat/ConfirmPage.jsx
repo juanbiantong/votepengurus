@@ -28,14 +28,14 @@ export default function ConfirmPage() {
 								<div className="card card-primary card-outline mb-1">
 									{/* /.card-header */}
 									<div className="card-body p-0 m-0">
-										<div className="mailbox-read-info p-1 m-0">
-											<h5>Selamat!</h5>
+										<div className="mailbox-read-info p-1 m-0 bg-warning">
+											<h5>Pemilihan Selesai.</h5>
 										</div>
 										<div className="mailbox-read-message">
-											<h6 className="mb-1">Hello [Nama Pemilih],</h6>
+											<p className="mb-1"><strong>Hello [Nama Pemilih],</strong></p>
 											<p className="mb-2">
 												&emsp;Data pilihan majelis (Penatua dan Diaken) pilihan anda, sudah kami
-												terima. Terima kasih sudah berpartisipasi dalam pemilihan ini
+												terima. Terima kasih sudah berpartisipasi dalam pemilihan ini.
 											</p>
 											<p className="mb-2">
 												&emsp;Setelah bakal calon ditetapkan yaitu 2 kali dari jumlah komposisi
@@ -48,12 +48,11 @@ export default function ConfirmPage() {
 												&emsp;Mari kita mendoakan agar proses ini bisa berjalan dengan baik dan
 												berkenan bagi Tuhan.
 											</p>
-
+											<hr className="mt-1 mb-1"/>
 											<p className="mb-1">
 												Tuhan memberkati,
-												<br />
-												Panitia Pemilhan Penatua dan Diaken
 											</p>
+											<p className="mb-0 bg-warning text-center"><strong>Panitia Pemilhan Penatua dan Diaken</strong></p>
 										</div>
 									</div>
 								</div>
