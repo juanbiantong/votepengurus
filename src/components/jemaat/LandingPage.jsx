@@ -10,18 +10,17 @@ export default function LandingPage() {
 			<Header />
 			<div className="p-1">
 				{/* Content Header (Page header) */}
-				<div>
+				<div className="custom col-md-11 mx-auto">
 					<br />
-					<br />
-					<br />
-					<div className="container-fluid">
-						<div className="row mb-2 justify-content-center">
+					<div className="container-fluid ">
+						<div className="row mb-2 justify-content-center ">
 							<div className="col-sm-10">
 								<h4 className="m-0 text-dark">Aplikasi Pemilihan Penatua dan Diaken</h4>
 								<div>
 									<p className="fs-5 col-md-12">
-										Selamat datang di website pemilihan Penatua dan Diaken Gereja Toraja Jemaat Depok 2021-2024. Ini
-										adalah halaman rekomendasi bakal calon. Silahkan memilih <strong>72 Nama</strong> yang anda inginkan calonkan sebagai majelis dengan
+										Selamat datang di website pemilihan Penatua dan Diaken Gereja Toraja Jemaat
+										Depok 2021-2024. Ini adalah halaman rekomendasi bakal calon. Silahkan memilih{' '}
+										<strong>72 Nama</strong> yang anda inginkan calonkan sebagai majelis dengan
 										komposisi <strong>42 Penatua</strong> dan <strong>30 Diaken</strong>.
 									</p>
 								</div>
@@ -39,7 +38,7 @@ export default function LandingPage() {
 				{/* Main content */}
 				<div className="content">
 					<div className="container-fluid">
-						<div className="row d-flex justify-content-center bg-cust2 pt-3 border-radius-15">
+						<div className="row custom col-md-11 d-flex justify-content-center bg-cust2 pt-3 border-radius-15 mx-auto">
 							{/* section penatua */}
 							<div className="col-lg-5">
 								<div className="card card-primary card-outline">
@@ -145,14 +144,14 @@ export default function LandingPage() {
 										<hr className="mb-1 mt-1 bg-primary" />
 										<ul className="pl-3 pr-2 text-justify">
 											<p className="mb-1">
-												<BsStopFill /> Masa Tugas Penatua adalah tiga tahun dan berakhir setelah
-												penggantinya diteguhkan. Penatua yang akan berakhir masa tugasnya dapat
-												dicalonkan dan dipilih kembali.
+												<BsStopFill className="text-primary" /> Masa Tugas Penatua adalah tiga
+												tahun dan berakhir setelah penggantinya diteguhkan. Penatua yang akan
+												berakhir masa tugasnya dapat dicalonkan dan dipilih kembali.
 											</p>
 											<div>
 												<p className="mb-1">
-													<BsStopFill /> Jabatan seorang Penatua ditanggalkan sebelum masa
-													tugasnya berakhir, jika :
+													<BsStopFill className="text-primary" /> Jabatan seorang Penatua
+													ditanggalkan sebelum masa tugasnya berakhir, jika :
 												</p>
 												<p className="ml-3 mb-1">
 													<strong>a.</strong> Pindah menjadi anggota jemaat atau gereja lain.
@@ -166,8 +165,8 @@ export default function LandingPage() {
 												</p>
 											</div>
 											<p className="mb-1">
-												<BsStopFill /> Penanggalan jabatan tersebut diwartakan dalam warta
-												jemaat selama dua hari Minggu berturut-turut.
+												<BsStopFill className="text-primary" /> Penanggalan jabatan tersebut
+												diwartakan dalam warta jemaat selama dua hari Minggu berturut-turut.
 											</p>
 										</ul>
 									</div>
@@ -177,7 +176,7 @@ export default function LandingPage() {
 							{/* section diaken */}
 							<div className="col-lg-5">
 								<div className="card card-primary card-outline">
-									<div className="card-header d-flex justify-content-between p-2">
+									<div className="card-header d-flex justify-content-between p-1">
 										<button
 											type="button"
 											className="btn btn-primary btn-xs flex-end"
@@ -274,19 +273,19 @@ export default function LandingPage() {
 										</ul>
 										<strong>
 											<BsFillGridFill className="mr-2 text-primary" />
-											Masa Tugas Penatua
+											Masa Tugas Diaken
 										</strong>
 										<hr className="mb-1 mt-1 bg-primary" />
 										<ul className="pl-3 pr-2 text-justify">
 											<p className="mb-1">
-												<BsStopFill /> Masa Tugas Penatua adalah tiga tahun dan berakhir setelah
-												penggantinya diteguhkan. Penatua yang akan berakhir masa tugasnya dapat
-												dicalonkan dan dipilih kembali.
+												<BsStopFill className="text-primary" /> Masa tugas Diaken adalah tiga
+												tahun dan berakhir setelah penggantinya diteguhkan. Diaken yang akan
+												berakhir ,masa tugasnya dapat dicalonkan dan dipilih kembali.
 											</p>
 											<div>
 												<p className="mb-1">
-													<BsStopFill /> Jabatan seorang Penatua ditanggalkan sebelum masa
-													tugasnya berakhir, jika :
+													<BsStopFill className="text-primary" /> Jabatan seorang Diaken dapat
+													ditanggalkan sebelum masa tugasnya berakhir jika :
 												</p>
 												<p className="ml-3 mb-1">
 													<strong>a.</strong> Pindah menjadi anggota jemaat atau gereja lain.
@@ -296,12 +295,12 @@ export default function LandingPage() {
 												</p>
 												<p className="ml-3 mb-1">
 													<strong>c.</strong> Mengundurkan diri karena alasan-alasan yang
-													dapat dipertanggungjawabkan..
+													dapat dipertanggungjawabkan.
 												</p>
 											</div>
 											<p className="mb-1">
-												<BsStopFill /> Penanggalan jabatan tersebut diwartakan dalam warta
-												jemaat selama dua hari Minggu berturut-turut.
+												<BsStopFill className="text-primary"                /> Penanggalan jabatan tersebut
+												diwartakan dalam warta jemaat selama dua hari Minggu berturut-turut.
 											</p>
 										</ul>
 									</div>
@@ -310,7 +309,7 @@ export default function LandingPage() {
 						</div>
 						{/* /.row */}
 						<hr className="mb-1 mt-1" />
-						<div className="row justify-content-center">
+						<div className="row justify-content-center custom">
 							<div className="col-sm-10">
 								<p className="font-weight-bold text-danger">
 									<span className="">***</span> Silahkan mendoakan terlebih dahulu nama yang anda
@@ -326,14 +325,16 @@ export default function LandingPage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<Link className="btn submit-btn mx-auto p-1 m-0 justify-content-center" to="/votepage">Lanjutkan</Link>
+								<Link className="btn submit-btn mx-auto p-1 m-0 justify-content-center" to="/votepage">
+									Lanjutkan
+								</Link>
 							</div>
 						</div>
 					</div>
 					{/* /.container-fluid */}
 				</div>
 			</div>
-			<Footer/>
+			<Footer />
 		</div>
 	);
 }

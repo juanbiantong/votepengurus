@@ -137,39 +137,41 @@ export function AccountBox(props) {
   const contextValue = { switchToSignup, switchToSignin };
 
   return (
-    <AccountContext.Provider value={contextValue}>
-      <React.Fragment>
-        <AppContainer>
-          <BoxContainer>
-            <TopContainer>
-              <BackDrop
-                initial={false}
-                animate={isExpanded ? "expanded" : "collapsed"}
-                variants={backdropVariants}
-                transition={expandingTransition}
-              />
-              {active === "signin" && (
-                <HeaderContainer>
-                  <HeaderText>Pilih Majelis</HeaderText>
-                  <HeaderText>Getor Depok</HeaderText>
-                  <SmallText>Silahkan masukkan nomor hp dan password untuk melakukan pemilihan!</SmallText>
-                </HeaderContainer>
-              )}
-              {active === "signup" && (
-                <HeaderContainer>
-                  <HeaderText>Ganti</HeaderText>
-                  <HeaderText>Password</HeaderText>
-                  <SmallText>Jangan lupa untuk mencatat password baru yang telah dibuat!</SmallText>
-                </HeaderContainer>
-              )}
-            </TopContainer>
-            <InnerContainer>
-              {active === "signin" && <LoginForm />}
-              {active === "signup" && <SignupForm />}
-            </InnerContainer>
-          </BoxContainer>
-        </AppContainer>
-      </React.Fragment>
-    </AccountContext.Provider>
+		<AccountContext.Provider value={contextValue}>
+			<React.Fragment>
+				<AppContainer>
+					<BoxContainer>
+						<TopContainer>
+							<BackDrop
+								initial={false}
+								animate={isExpanded ? 'expanded' : 'collapsed'}
+								variants={backdropVariants}
+								transition={expandingTransition}
+							/>
+							{active === 'signin' && (
+								<HeaderContainer>
+									<HeaderText>Pilih Penatua & Diaken</HeaderText>
+									<HeaderText>Getor Depok</HeaderText>
+									<SmallText>
+										Silahkan masukkan nomor hp dan password untuk melakukan pemilihan!
+									</SmallText>
+								</HeaderContainer>
+							)}
+							{active === 'signup' && (
+								<HeaderContainer>
+									<HeaderText>Ganti</HeaderText>
+									<HeaderText>Password</HeaderText>
+									<SmallText>Jangan lupa untuk mencatat password baru yang telah dibuat!</SmallText>
+								</HeaderContainer>
+							)}
+						</TopContainer>
+						<InnerContainer>
+							{active === 'signin' && <LoginForm />}
+							{active === 'signup' && <SignupForm />}
+						</InnerContainer>
+					</BoxContainer>
+				</AppContainer>
+			</React.Fragment>
+		</AccountContext.Provider>
   );
 }

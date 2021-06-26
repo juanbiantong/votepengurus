@@ -17,7 +17,6 @@ export default function VotePage() {
 		fetchData();
 	}, []);
 
-
 	const handleCheckbox = (even) => {
 		data.map((d, index) => {
 			if (`${d.id}a` === even.target.name) {
@@ -58,16 +57,15 @@ export default function VotePage() {
 	};
 
 	data.map((d) => {
-		return $(function (event) {
+		return $(function () {
 			$(`.${d.id}vote`).click(function (e) {
 				$(`.${d.id}vote`).not(this).prop('checked', false);
 			});
-		
-			if(totalPenatua===10){
-				$(`#penatua${d.id}:not(:checked)`).attr('disabled', 'disabled');	
-				
-			}else {
-				 $(`#penatua${d.id}`).removeAttr('disabled');
+
+			if (totalPenatua === 10) {
+				$(`#penatua${d.id}:not(:checked)`).attr('disabled', 'disabled');
+			} else {
+				$(`#penatua${d.id}`).removeAttr('disabled');
 			}
 
 			if (totalDiaken === 5) {
@@ -102,11 +100,11 @@ export default function VotePage() {
 		<div className="content-wrapper">
 			{/* table voting */}
 			<div className="row justify-content-center w-100 mx-auto">
-				<div className="col-md-12 fixed-top mt-2">
+				<div className="col-md-12 fixed-top mt-1">
 					<div className="card border-radius-15">
 						<div className="card card-widget widget-user-2 m-0 border-radius-15">
 							{/* Add the bg color to the header using any of the bg-* classes */}
-							<div className="widget-user-header bg-cust p-2 border-top-radius-15">
+							<div className="widget-user-header bg-cust p-1 pl-3 border-top-radius-15">
 								<div className="widget-user-image">
 									<img
 										className="img-circle elevation-2 mr-3"
@@ -115,7 +113,7 @@ export default function VotePage() {
 									/>
 								</div>
 								{/* /.widget-user-image */}
-								<h6 className="text-bold text-white mt-2">[Nama Pemilih]</h6>
+								<h6 className="text-bold text-white mt-2">Olive Tree</h6>
 								<h6 className="text-bold text-white">Sektor 1</h6>
 							</div>
 							<div className="card-footer bg-light pt-1 pr-2 pl-2 pb-0">
@@ -132,7 +130,7 @@ export default function VotePage() {
 											<span className="badge bg-warning m-1">{totalDiaken}</span> Orang
 										</strong>
 									</li>
-									<li className="nav-item mx-auto m-1 p-1">
+									<li className="nav-item mx-auto m-1 p-1 m-0">
 										<button
 											className="btn btn-outline-primary btn-sm sektor font-weight-bold"
 											aria-pressed="true"
@@ -192,7 +190,7 @@ export default function VotePage() {
 								</ul>
 							</div>
 						</div>
-						<div className="row custom m-1 justify-content-center pb-3 pr-1 pl-1 bg-cust2">
+						<div className="row custom m-1 col-md-11 mx-auto justify-content-center pb-3 pr-1 pl-1 bg-cust2">
 							<div className="card-header col-md-10 pt-0 pb-0 mt-2 mb-0">
 								<h6 className="float-left text-bold text-white">DAFTAR CALON</h6>
 								<div className="card-tools">

@@ -15,8 +15,8 @@
 
 .custom {
 	border-radius: 10px !important;
-	-webkit-box-shadow: 0px 10px 13px -7px #565388, 0px 0px 50px 5px rgba(87, 53, 209, 0) !important;
-	box-shadow: 0px 10px 13px -7px #443bbb, 0px 0px 50px 5px rgba(87, 53, 209, 0) !important;
+	-webkit-box-shadow: 0px 0px 20px -7px #565388, 0px 0px 50px 5px rgba(87, 53, 209, 0) !important;
+	box-shadow: 0px 0px 20px -7px #443bbb, 0px 0px 50px 5px rgba(87, 53, 209, 0) !important;
 }
 
 .custom2 {

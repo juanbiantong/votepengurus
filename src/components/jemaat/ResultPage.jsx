@@ -37,11 +37,11 @@ export default function ResultPage() {
 	return (
 		<Fragment>
 			<div className="row justify-content-center w-100 mx-auto">
-				<div className="col-md-12 fixed-top mt-2">
+				<div className="col-md-12 fixed-top mt-1">
 					<div className="card border-radius-15">
 						<div className="card card-widget widget-user-2 m-0 border-radius-15">
 							{/* Add the bg color to the header using any of the bg-* classes */}
-							<div className="widget-user-header bg-cust p-2 border-top-radius-15">
+							<div className="widget-user-header bg-cust p-1 pl-3 border-top-radius-15">
 								<div className="widget-user-image">
 									<img
 										className="img-circle elevation-2 mr-3"
@@ -50,7 +50,7 @@ export default function ResultPage() {
 									/>
 								</div>
 								{/* /.widget-user-image */}
-								<h6 className="text-bold text-white mt-2">[Nama Pemilih]</h6>
+								<h6 className="text-bold text-white mt-2">Olive Tree</h6>
 								<h6 className="text-bold text-white">Sektor 1</h6>
 							</div>
 							<div className="card-footer bg-light pt-1 pr-2 pl-2 pb-0">
@@ -127,12 +127,12 @@ export default function ResultPage() {
 								</ul>
 							</div>
 						</div>
-						<div className="card card-row card-warning m-0">
+						<div className="card card-row card-warning m-0 col-md-11 mx-auto p-0">
 							<div className="card-header p-2">
 								<h4 className="card-title text-bold">Hasil Pilihan Anda</h4>
 							</div>
 						</div>
-						<div className="row custom mr-1 mb-1 ml-1 mt-0 justify-content-center pb-3 pt-1 pr-1 pl-1 bg-cust2">
+						<div className="row custom mr-1 mb-1 ml-1 mt-0 col-md-11 mx-auto justify-content-center pb-3 pt-1 pr-1 pl-1 bg-cust2">
 							<div className="card-body table-responsive p-0 col-md-10 table-height">
 								<table className="table tableFixHead table-bordered table-striped table-xs">
 									<thead className="m-0 ">
@@ -167,7 +167,9 @@ export default function ResultPage() {
 						</div>
 						<div className="row m-2 justify-content-center">
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<Link to="/admin" className="btn submit-btn mx-auto p-1 m-0 justify-content-center">Keluar</Link>
+								<Link to="/admin" className="btn submit-btn mx-auto p-1 m-0 justify-content-center">
+									Keluar
+								</Link>
 							</div>
 						</div>
 					</div>
