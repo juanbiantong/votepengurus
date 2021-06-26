@@ -76,13 +76,13 @@ export function LoginForm(props) {
 			<FormContainer onSubmit={handleSubmit}>
 				<Input
 					type="number"
-					id="hohp"
+					id="tglLahir"
 					onChange={handleInputChange}
 					value={data.nohp}
-					name="nohp"
+					name="tglLahir"
 					required
 					autoFocus
-					placeholder="Nomor Hp"
+					placeholder="Tanggal Lahir"
 				/>
 
 				<Input
