@@ -153,7 +153,7 @@ export function AccountBox(props) {
 									<HeaderText>Pilih Penatua & Diaken</HeaderText>
 									<HeaderText>Getor Depok</HeaderText>
 									<SmallText>
-										Silahkan masukkan nomor hp dan password untuk melakukan pemilihan!
+										Silahkan masukkan tanggla lahir dan password untuk melakukan pemilihan!
 									</SmallText>
 								</HeaderContainer>
 							)}
