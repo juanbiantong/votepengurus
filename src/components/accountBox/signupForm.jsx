@@ -18,8 +18,9 @@ export function SignupForm(props) {
 		<BoxContainer>
 			<FormContainer>
 				<Input type="number" autoFocus placeholder="Tanggal Lahir" />
-				<Input type="password" placeholder="Password" />
-				<Input type="password" placeholder="Confirm Password" />
+				<Input type="old_password" placeholder="Password Lama" />
+				<Input type="password" placeholder="Password Baru" />
+				<Input type="password" placeholder="Konfirmasi Password Baru" />
 			</FormContainer>
 			<Marginer direction="vertical" margin={10} />
 			<SubmitButton type="submit">Ganti Password</SubmitButton>
