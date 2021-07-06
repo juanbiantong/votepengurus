@@ -8,6 +8,8 @@ export default function VotePage() {
 	const [data, setData] = useState([]);
 	const [totalPenatua, setTotalPenatua] = useState(0);
 	const [totalDiaken, setTotalDiaken] = useState(0);
+	const [vote, setVote] = useState([]);
+	const [disable, setDisable] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -56,26 +58,36 @@ export default function VotePage() {
 		);
 	};
 
-	data.map((d) => {
-		return $(function () {
-			$(`.${d.id}vote`).click(function (e) {
-				$(`.${d.id}vote`).not(this).prop('checked', false);
-			});
-
-			if (totalPenatua === 10) {
-				$(`#penatua${d.id}:not(:checked)`).attr('disabled', 'disabled');
-			} else {
-				$(`#penatua${d.id}`).removeAttr('disabled');
+	const handleDisable = (even) => {
+		if (even.target.value === 'status' && even.target.checked) {
+			setDisable(false);
+		} else {
+			setDisable(true);
+		}
+	};
+	const handleVote = () => {
+		let tmp_vote = data;
+		for (let i = 0; i < tmp_vote.length; i++) {
+			if (tmp_vote[i].penatua === 0 && tmp_vote[i].diaken === 0) {
+				tmp_vote.splice(i, 1);
+				i--;
 			}
+		}
+		setVote(tmp_vote);
+	};
 
-			if (totalDiaken === 5) {
-				$(`#diaken${d.id}:not(:checked)`).attr('disabled', 'disabled');
-			} else {
-				$(`#diaken${d.id}`).removeAttr('disabled');
-			}
-		});
-	});
 	$(document).ready(function () {
+		if (totalPenatua === 10) {
+			$(`.penatuacheck input[type=checkbox]:not(:checked)`).attr('disabled', true);
+		} else {
+			$(`.penatuacheck input[type=checkbox]`).removeAttr('disabled');
+		}
+
+		if (totalDiaken === 5) {
+			$(`.diakencheck input[type=checkbox]:not(:checked)`).attr('disabled', true);
+		} else {
+			$(`.diakencheck input[type=checkbox]`).removeAttr('disabled');
+		}
 		$(function () {
 			$('.sektor').click(function (e) {
 				let value = $(this).val();
@@ -93,6 +105,20 @@ export default function VotePage() {
 		$('.clear').on('click', function () {
 			$('#myTable tr').filter(function () {
 				return $(this).toggle($(this).text().toLowerCase().indexOf('') > -1);
+			});
+		});
+		data.map((d) => {
+			return $(function () {
+				$(`.${d.id}vote`).click(function (e) {
+					$(`.${d.id}vote`).not(this).prop('checked', false);
+				});
+				$(`.vote`).click(function (e) {
+					if ($(this).is(':checked')) {
+						$(`.${d.id}vote`).attr('disabled', true);
+					} else {
+						$(`.${d.id}vote`).removeAttr('disabled');
+					}
+				});
 			});
 		});
 	});
@@ -244,7 +270,7 @@ export default function VotePage() {
 															}}
 														>
 															<form className="custom2">
-																<div>
+																<div className="penatuacheck">
 																	<input
 																		id={`penatua${item.id}`}
 																		type="checkbox"
@@ -255,7 +281,7 @@ export default function VotePage() {
 																	/>
 																	<label>&nbsp;Penatua</label>
 																</div>
-																<div>
+																<div className="diakencheck">
 																	<input
 																		id={`diaken${item.id}`}
 																		type="checkbox"
@@ -277,12 +303,25 @@ export default function VotePage() {
 							</div>
 						</div>
 						<div className="row m-2 justify-content-center">
+							<div>
+								<input
+									type="checkbox"
+									value="status"
+									onChange={handleDisable}
+									name={`vote`}
+									className="vote"
+								/>
+								<label>&nbsp;Apakah anda sudah yakin dengan pilihan anda?</label>
+							</div>
 							<div className="col-sm-2 justify-content-center mx-auto">
-								<Link
-									className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
-									to="/confirmpage"
-								>
-									Vote
+								<Link>
+									<button
+										className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
+										onClick={handleVote}
+										disabled={disable}
+									>
+										Vote
+									</button>
 								</Link>
 							</div>
 						</div>

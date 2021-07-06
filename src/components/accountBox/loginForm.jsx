@@ -79,7 +79,7 @@ export function LoginForm(props) {
 					id="tglLahir"
 					onChange={handleInputChange}
 					value={data.nohp}
-					name="tglLahir"
+					name="nohp"
 					required
 					autoFocus
 					placeholder="Tanggal Lahir"
