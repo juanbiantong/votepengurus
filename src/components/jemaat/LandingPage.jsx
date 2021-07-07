@@ -299,7 +299,7 @@ export default function LandingPage() {
 												</p>
 											</div>
 											<p className="mb-1">
-												<BsStopFill className="text-primary"                /> Penanggalan jabatan tersebut
+												<BsStopFill className="text-primary" /> Penanggalan jabatan tersebut
 												diwartakan dalam warta jemaat selama dua hari Minggu berturut-turut.
 											</p>
 										</ul>
@@ -308,8 +308,7 @@ export default function LandingPage() {
 							</div>
 						</div>
 						{/* /.row */}
-						<hr className="mb-1 mt-1" />
-						<div className="row justify-content-center custom">
+						<div className="row justify-content-center col-md-11 custom mt-2 mx-auto p-2">
 							<div className="col-sm-10">
 								<p className="font-weight-bold text-danger">
 									<span className="">***</span> Silahkan mendoakan terlebih dahulu nama yang anda
