@@ -321,7 +321,7 @@ export default function VotePage() {
 					</div>
 					<div className="row m-2 justify-content-center">
 						<div className="col-sm-2 justify-content-center mx-auto">
-							<Link>
+							<Link to="/confirmpage">
 								<button
 									className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
 									onClick={handleVote}

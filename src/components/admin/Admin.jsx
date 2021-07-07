@@ -5,14 +5,14 @@ import Menu from './Menu';
 import Footer from './Footer';
 
 function Admin() {
-  return (
-    <div className="wrapper">
-      <Header />
-      <Menu />
-      <Dashboard />
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="wrapper">
+			<Header />
+			<Menu />
+			<Dashboard />
+			<Footer />
+		</div>
+	);
 }
 
 export default Admin;
