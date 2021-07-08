@@ -10,7 +10,6 @@ export default function VotePage() {
 	const [data, setData] = useState([]);
 	const [totalPenatua, setTotalPenatua] = useState(0);
 	const [totalDiaken, setTotalDiaken] = useState(0);
-	const [vote, setVote] = useState([]);
 	const [disable, setDisable] = useState(true);
 
 	useEffect(() => {
@@ -23,6 +22,12 @@ export default function VotePage() {
 
 	const handleCheckbox = (even) => {
 		data.map((d, index) => {
+			//moveable checkbox
+			$(`.${d.id}vote`).click(function (e) {
+				$(`.${d.id}vote`).not(this).prop('checked', false);
+			});
+
+			//manipulate data penatua
 			if (`${d.id}a` === even.target.name) {
 				let tmp_array = data;
 				if (even.target.value === 'penatua' && even.target.checked) {
@@ -33,7 +38,18 @@ export default function VotePage() {
 					tmp_array[index].penatua = 0;
 					setData(tmp_array);
 				}
+				if ($('.penatuacheck input:checkbox:checked').length === 5) {
+					Swal.fire({
+						position: 'top-center',
+						icon: 'warning',
+						html: '<strong>Batas Maksimum Pilihan Penatua</strong>',
+						showConfirmButton: true,
+						confirmButtonColor: '#ec9e0d',
+					});
+				}
 			}
+
+			//manipulate data diaken
 			if (`${d.id}b` === even.target.name) {
 				let tmp_array = data;
 				if (even.target.value === 'diaken' && even.target.checked) {
@@ -44,20 +60,31 @@ export default function VotePage() {
 					tmp_array[index].diaken = 0;
 					setData(tmp_array);
 				}
+				if ($('.diakencheck input:checkbox:checked').length === 5) {
+					Swal.fire({
+						position: 'top-center',
+						icon: 'warning',
+						html: '<strong>Batas Maksimum Pilihan Diaken</strong>',
+						showConfirmButton: true,
+						confirmButtonColor: '#ec9e0d',
+					});
+				}
+			}
+			
+			if ($('.penatuacheck input:checkbox:checked').length === 5) {
+				$(`.penatuacheck input[type=checkbox]:not(:checked)`).attr('disabled', true);
+			} else {
+				$(`.penatuacheck input[type=checkbox]`).removeAttr('disabled');
+			}
+			if ($('.diakencheck input:checkbox:checked').length === 5) {
+				$(`.diakencheck input[type=checkbox]:not(:checked)`).attr('disabled', true);
+			} else {
+				$(`.diakencheck input[type=checkbox]`).removeAttr('disabled');
 			}
 			return d;
 		});
-
-		setTotalPenatua(
-			data.filter((item) => {
-				return item.penatua;
-			}).length
-		);
-		setTotalDiaken(
-			data.filter((item) => {
-				return item.diaken;
-			}).length
-		);
+		setTotalPenatua($('.penatuacheck input:checkbox:checked').length);
+		setTotalDiaken($('.diakencheck input:checkbox:checked').length);
 	};
 
 	const handleDisable = (even) => {
@@ -67,46 +94,8 @@ export default function VotePage() {
 			setDisable(true);
 		}
 	};
-	const handleVote = () => {
-		let tmp_vote = data;
-		for (let i = 0; i < tmp_vote.length; i++) {
-			if (tmp_vote[i].penatua === 0 && tmp_vote[i].diaken === 0) {
-				tmp_vote.splice(i, 1);
-				i--;
-			}
-		}
-		setVote(tmp_vote);
-		console.log(vote);
-	};
 
 	$(document).ready(function () {
-		if (totalPenatua === 10) {
-			$(`.penatuacheck input[type=checkbox]:not(:checked)`).attr('disabled', true);
-		} else {
-			$(`.penatuacheck input[type=checkbox]`).removeAttr('disabled');
-		}
-
-		if (totalDiaken === 5) {
-			const Toast = Swal.mixin({
-				toast: true,
-				position: 'top-end',
-				showConfirmButton: false,
-				timer: 2000,
-				timerProgressBar: true,
-				onOpen: (toast) => {
-					toast.addEventListener('mouseenter', Swal.stopTimer);
-					toast.addEventListener('mouseleave', Swal.resumeTimer);
-				},
-			});
-
-			Toast.fire({
-				icon: 'success',
-				title: 'Signed in successfully',
-			});
-			$(`.diakencheck input[type=checkbox]:not(:checked)`).attr('disabled', true);
-		} else {
-			$(`.diakencheck input[type=checkbox]`).removeAttr('disabled');
-		}
 		$(function () {
 			$('.sektor').click(function (e) {
 				let value = $(this).val();
@@ -127,18 +116,21 @@ export default function VotePage() {
 			});
 		});
 		data.map((d) => {
-			return $(function () {
-				$(`.${d.id}vote`).click(function (e) {
-					$(`.${d.id}vote`).not(this).prop('checked', false);
-				});
+			$(function () {
 				$(`.vote`).click(function (e) {
 					if ($(this).is(':checked')) {
 						$(`.${d.id}vote`).attr('disabled', true);
+					} else if (
+						$('.penatuacheck input:checkbox:checked').length === 5 ||
+						$('.diakencheck input:checkbox:checked').length === 5
+					) {
+						$(`.${d.id}vote:checked`).removeAttr('disabled');
 					} else {
 						$(`.${d.id}vote`).removeAttr('disabled');
 					}
 				});
 			});
+			return d;
 		});
 	});
 	return (
@@ -316,7 +308,7 @@ export default function VotePage() {
 								name={`vote`}
 								className="vote"
 							/>
-							<label className="m-0">&nbsp;Apakah anda sudah yakin dengan pilihan anda?</label>
+							<label className="m-0">&nbsp;Apakah sudah yakin dengan pilihan anda?</label>
 						</div>
 					</div>
 					<div className="row m-2 justify-content-center">
@@ -324,7 +316,6 @@ export default function VotePage() {
 							<Link to="/confirmpage">
 								<button
 									className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
-									onClick={handleVote}
 									disabled={disable}
 								>
 									Vote

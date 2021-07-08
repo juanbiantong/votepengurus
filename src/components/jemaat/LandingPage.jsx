@@ -19,9 +19,9 @@ export default function LandingPage() {
 								<div>
 									<p className="fs-5 col-md-12">
 										Selamat datang di website pemilihan Penatua dan Diaken Gereja Toraja Jemaat
-										Depok 2021-2024. Ini adalah halaman rekomendasi bakal calon. Silahkan memilih{' '}
-										<strong>72 Nama</strong> yang anda inginkan calonkan sebagai majelis dengan
-										komposisi <strong>42 Penatua</strong> dan <strong>30 Diaken</strong>.
+										Depok 2021-2024. Silahkan memilih <strong>72 Nama</strong> yang anda inginkan
+										calonkan sebagai majelis dengan komposisi <strong>36 Penatua</strong> dan{' '}
+										<strong>36 Diaken</strong>.
 									</p>
 								</div>
 								<div className="col-md-12">
@@ -318,7 +318,7 @@ export default function LandingPage() {
 								</p>
 								<p>
 									Jika bapak/ibu sudah mendoakan, silahkan klik lanjutkan ke halaman berikut untuk
-									memilih nama bakal calon Majelis (Penatua dan Diaken)
+									memilih nama bakal calon Penatua dan Diaken.
 								</p>
 							</div>
 						</div>
