@@ -1,27 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Recursive&display=swap");
 body {
-	margin: 0;
-	margin: 0;
-	font-size: 14px;
-	font-family: 'Recursive', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  margin: 0;
+  font-size: 14px;
+  font-family: "Recursive", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 @media screen and (max-width: 992px) {
   body {
     font-size: smaller;
   }
+  h4 {
+    font-size: 16px !important;
+	font-weight: bold !important;
+	padding-top: 8px;
+  }
+   h5 {
+    font-size: 16px !important;
+  }
 }
 
 /* On screens that are 414px or less, set the background color to olive */
 @media screen and (max-width: 320px) {
-	body {
-		font-size: 12px !important;
-	}
+  body {
+    font-size: 12px !important;
+  }
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 input::-webkit-outer-spin-button,
@@ -30,7 +39,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
+button[disabled] {
+  opacity: 0.25 !important;
+}

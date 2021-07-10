@@ -72,47 +72,47 @@ export function LoginForm(props) {
 	};
 
 	return (
-		<BoxContainer>
-			<FormContainer onSubmit={handleSubmit}>
-				<Input
-					type="number"
-					id="tglLahir"
-					onChange={handleInputChange}
-					value={data.nohp}
-					name="nohp"
-					required
-					autoFocus
-					placeholder="Tanggal Lahir"
-				/>
+    <BoxContainer>
+      <FormContainer onSubmit={handleSubmit}>
+        <Input
+          type="number"
+          id="tglLahir"
+          onChange={handleInputChange}
+          value={data.nohp}
+          name="nohp"
+          required
+          autoFocus
+          placeholder="Gunakan tgl lahir. Contoh: 25121990"
+        />
 
-				<Input
-					type="password"
-					onChange={handleInputChange}
-					value={data.password}
-					name="password"
-					required
-					placeholder="Password"
-				/>
-				<Marginer direction="vertical" margin={10} />
-				<Marginer direction="vertical" margin="1.6em" />
-				{/* <SubmitButton disabled={data.isSubmitting} type="submit">
+        <Input
+          type="password"
+          onChange={handleInputChange}
+          value={data.password}
+          name="password"
+          required
+          placeholder="Password"
+        />
+        <Marginer direction="vertical" margin={10} />
+        <Marginer direction="vertical" margin="1.6em" />
+        {/* <SubmitButton disabled={data.isSubmitting} type="submit">
 					{data.isSubmitting ? '...Loading' : 'Lanjutkan'}
 				</SubmitButton> */}
-				<Link to="/landingpage">
-					<SubmitButton className="submit-btn" to="/landingpage" type="submit">
-						{data.isSubmitting ? '...Loading' : 'Lanjutkan'}
-					</SubmitButton>
-				</Link>
-				{data.errorMessage ? <div>{data.errorMessage}</div> : null}
-			</FormContainer>
+        <Link to="/landingpage">
+          <SubmitButton className="submit-btn" to="/landingpage" type="submit">
+            {data.isSubmitting ? "...Loading" : "Lanjutkan"}
+          </SubmitButton>
+        </Link>
+        {data.errorMessage ? <div>{data.errorMessage}</div> : null}
+      </FormContainer>
 
-			<Marginer direction="vertical" margin="1em" />
-			<MutedLink>
-				Klik tanda panah untuk mengganti password!{' '}
-				<BoldLink onClick={switchToSignup}>
-					<BsFillForwardFill />
-				</BoldLink>
-			</MutedLink>
-		</BoxContainer>
-	);
+      <Marginer direction="vertical" margin="1em" />
+      <MutedLink>
+        Klik tanda panah untuk mengganti password!{" "}
+        <BoldLink onClick={switchToSignup}>
+          <BsFillForwardFill />
+        </BoldLink>
+      </MutedLink>
+    </BoxContainer>
+  );
 }
