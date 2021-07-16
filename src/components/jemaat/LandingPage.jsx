@@ -21,7 +21,7 @@ export default function LandingPage() {
       <div className="p-1">
         <div className="bg-warning mb-2 mt-0">
           <label className="m-0 pl-2 pr-2">
-            Checklist (✓) jika ingin mengganti password!&nbsp;
+            Centang (✓) jika ingin mengganti password!&nbsp;
             <input
               type="checkbox"
               value="status"
