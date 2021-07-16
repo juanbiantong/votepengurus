@@ -24,41 +24,17 @@ export default function VotePage() {
   }, []);
 
   const handleCheckbox = (even) => {
+    let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
+    let diakenCheck = Array.from(document.getElementsByClassName(`diaken`));
+
     data.map((d, index) => {
       let myCheckbox = document.getElementsByName(`vote${d.id}`);
-      if (even.target.name === `vote${d.id}`) {
-        if (even.target.checked) {
-          if (even.target.id === `penatua${d.id}`) {
-            setTotalPenatua(totalPenatua + 1);
-            if (totalDiaken > 0 && myCheckbox[1].checked === true) {
-              setTotalDiaken(totalDiaken - 1);
-            }
-          }
-          if (even.target.id === `diaken${d.id}`) {
-            setTotalDiaken(totalDiaken + 1);
-            if (totalPenatua > 0 && myCheckbox[0].checked === true) {
-              setTotalPenatua(totalPenatua - 1);
-            }
-          }
-          //pilih salahsatu checkbox tiap row
-          myCheckbox.forEach((element) => {
-            element.checked = false;
-          });
-          even.target.checked = true;
-        }
-
-        if (!even.target.checked) {
-          if (even.target.id === `penatua${d.id}`) {
-            if (totalPenatua > 0) {
-              setTotalPenatua(totalPenatua - 1);
-            }
-          }
-          if (even.target.id === `diaken${d.id}`) {
-            if (totalDiaken > 0) {
-              setTotalDiaken(totalDiaken - 1);
-            }
-          }
-        }
+      if (even.target.name === `vote${d.id}` && even.target.checked) {
+        //pilih salahsatu checkbox tiap row
+        myCheckbox.forEach((element) => {
+          element.checked = false;
+        });
+        even.target.checked = true;
       }
 
       //manipulate data penatua
@@ -72,7 +48,11 @@ export default function VotePage() {
           tmp_array[index].penatua = 0;
           setData(tmp_array);
         }
-        if ($(".penatuacheck input:checkbox:checked").length === 5) {
+        if (
+          penatuaCheck.filter((item) => {
+            return item.checked;
+          }).length === 5
+        ) {
           Swal.fire({
             position: "center",
             icon: "warning",
@@ -94,7 +74,11 @@ export default function VotePage() {
           tmp_array[index].diaken = 0;
           setData(tmp_array);
         }
-        if ($(".diakencheck input:checkbox:checked").length === 5) {
+        if (
+          diakenCheck.filter((item) => {
+            return item.checked;
+          }).length === 5
+        ) {
           Swal.fire({
             position: "center",
             icon: "warning",
@@ -106,48 +90,113 @@ export default function VotePage() {
       }
 
       //handle disable checkbox base on maximum length
-      if ($(".penatuacheck input:checkbox:checked").length === 5) {
-        $(`.penatuacheck input[type=checkbox]:not(:checked)`).attr(
-          "disabled",
-          true
-        );
+      if (
+        penatuaCheck.filter((item) => {
+          return item.checked;
+        }).length === 5
+      ) {
+        penatuaCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = true;
+          }
+        });
       } else {
-        $(`.penatuacheck input[type=checkbox]`).removeAttr("disabled");
-      }
-      if ($(".diakencheck input:checkbox:checked").length === 5) {
-        $(`.diakencheck input[type=checkbox]:not(:checked)`).attr(
-          "disabled",
-          true
-        );
-      } else {
-        $(`.diakencheck input[type=checkbox]`).removeAttr("disabled");
+        penatuaCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = false;
+          }
+        });
       }
 
+      if (
+        diakenCheck.filter((item) => {
+          return item.checked;
+        }).length === 5
+      ) {
+        diakenCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = true;
+          }
+        });
+      } else {
+        diakenCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = false;
+          }
+        });
+      }
       return d;
     });
+
+    setTotalPenatua(
+      penatuaCheck.filter((item) => {
+        return item.checked;
+      }).length
+    );
+    setTotalDiaken(
+      diakenCheck.filter((item) => {
+        return item.checked;
+      }).length
+    );
   };
 
+  //handle confirmatin checkbox
   const handleDisable = (even) => {
+    let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
+    let diakenCheck = Array.from(document.getElementsByClassName(`diaken`));
     if (even.target.value === "status" && even.target.checked) {
+      penatuaCheck.forEach((element) => {
+        element.disabled = true;
+      });
+      diakenCheck.forEach((element) => {
+        element.disabled = true;
+      });
       setDisable(false);
     } else {
+      if (
+        penatuaCheck.filter((item) => {
+          return item.checked;
+        }).length === 5
+      ) {
+        penatuaCheck.forEach((element) => {
+          if (element.checked === true) {
+            element.disabled = false;
+          }
+        });
+      } else {
+        penatuaCheck.forEach((element) => {
+          element.disabled = false;
+        });
+      }
+
+      if (
+        diakenCheck.filter((item) => {
+          return item.checked;
+        }).length === 5
+      ) {
+        diakenCheck.forEach((element) => {
+          if (element.checked === true) {
+            element.disabled = false;
+          }
+        });
+      } else {
+        diakenCheck.forEach((element) => {
+          element.disabled = false;
+        });
+      }
       setDisable(true);
     }
   };
+
+  //filter hasil check untuk taplihan summary
   const handleVote = () => {
-    // let tmp_vote = data;
-    // for (let i = 0; i < tmp_vote.length; i++) {
-    //   if (tmp_vote[i].penatua === 0 && tmp_vote[i].diaken === 0) {
-    //     tmp_vote.splice(i, 1);
-    //     i--;
-    //   }
-    // }
-    // setVote(tmp_vote);
     let tmp_vote = data.filter(function (el) {
       return el.penatua === 1 || el.diaken === 1;
     });
     setVote(tmp_vote);
   };
+
+  //untuk fungsi search berdasarkan sektor dan nama balon
   $(document).ready(function () {
     //filter button balon
     $(".sektor").click(function (e) {
@@ -193,27 +242,6 @@ export default function VotePage() {
       $("#myTable2 tr").filter(function () {
         return $(this).toggle($(this).text().toLowerCase().indexOf("") > -1);
       });
-    });
-
-    //handle checkbox confirmation
-    data.map((d) => {
-      $(function () {
-        $(`.vote`).click(function (e) {
-          if ($(this).is(":checked")) {
-            $(`.${d.id}vote`).attr("disabled", true);
-          } else {
-            if (
-              $(".penatuacheck input:checkbox:checked").length === 5 ||
-              $(".diakencheck input:checkbox:checked").length === 5
-            ) {
-              $(`.${d.id}vote:checked`).removeAttr("disabled");
-            } else {
-              $(`.${d.id}vote`).removeAttr("disabled");
-            }
-          }
-        });
-      });
-      return d;
     });
   });
   return (
@@ -362,7 +390,7 @@ export default function VotePage() {
                                   type="checkbox"
                                   name={`vote${item.id}`}
                                   onChange={handleCheckbox}
-                                  className={`${item.id}vote`}
+                                  className={`penatua`}
                                   value="penatua"
                                 />
                                 <label>&nbsp;Penatua</label>
@@ -373,7 +401,7 @@ export default function VotePage() {
                                   type="checkbox"
                                   name={`vote${item.id}`}
                                   onChange={handleCheckbox}
-                                  className={`${item.id}vote`}
+                                  className={`diaken`}
                                   value="diaken"
                                 />
                                 <label>&nbsp;Diaken</label>
