@@ -144,6 +144,17 @@ export default function VotePage() {
   const handleDisable = (even) => {
     let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
     let diakenCheck = Array.from(document.getElementsByClassName(`diaken`));
+   
+    if (totalPenatua === 0 && totalDiaken === 0) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        html: "<strong>Anda belum memilih penatua ataupun diaken!</strong>",
+        showConfirmButton: true,
+        confirmButtonColor: "#ec9e0d"
+      });
+      $(".vote").prop("checked", false);
+    }
     if (even.target.value === "status" && even.target.checked) {
       penatuaCheck.forEach((element) => {
         element.disabled = true;
@@ -198,9 +209,14 @@ export default function VotePage() {
 
   //untuk fungsi search berdasarkan sektor dan nama balon
   $(document).ready(function () {
+    $(window).on("unload", function () {
+      $(window).scrollTop(0);
+    });
     //filter button balon
     $(".sektor").click(function (e) {
       let value = $(this).val();
+      $(this).addClass("active");
+      $(".sektor").not(this).removeClass("active");
       $("#myTable tr").filter(function () {
         return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
       });
@@ -209,6 +225,8 @@ export default function VotePage() {
     //filter button review pilihan
     $(".sektor2").click(function (e) {
       let value = $(this).val();
+      $(this).addClass("active");
+      $(".sektor2").not(this).removeClass("active");
       $("#myTable2 tr").filter(function () {
         return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
       });
@@ -217,6 +235,11 @@ export default function VotePage() {
     //filter search ballon
     $("#myInput").on("keyup", function () {
       let value = $(this).val().toLowerCase();
+      if (value !== "") {
+        $(".sektor").removeClass("active");
+      } else {
+        $("#all").addClass("active");
+      }
       $("#myTable tr").filter(function () {
         return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
       });
@@ -225,22 +248,13 @@ export default function VotePage() {
     //filter search review pilihan
     $("#myInput2").on("keyup", function () {
       let value = $(this).val().toLowerCase();
+      if (value !== "") {
+        $(".sektor2").removeClass("active");
+      } else {
+        $("#all2").addClass("active");
+      }
       $("#myTable2 tr").filter(function () {
         return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-      });
-    });
-
-    //tampilkan semua balon
-    $(".clear").on("click", function () {
-      $("#myTable tr").filter(function () {
-        return $(this).toggle($(this).text().toLowerCase().indexOf("") > -1);
-      });
-    });
-
-    //tampilkan semua review pilihan
-    $(".clear2").on("click", function () {
-      $("#myTable2 tr").filter(function () {
-        return $(this).toggle($(this).text().toLowerCase().indexOf("") > -1);
       });
     });
   });
@@ -274,7 +288,7 @@ export default function VotePage() {
                       Cari berdasarkan sektor
                     </label>
                   </div>
-                  <div className="ml-2 mb-1">
+                  <div className="ml-2">
                     <button
                       className="btn btn-outline-primary btn-sm sektor font-weight-bold"
                       aria-pressed="true"
@@ -325,8 +339,10 @@ export default function VotePage() {
                       7
                     </button>
                     <button
-                      className="btn btn-outline-primary btn-sm clear font-weight-bold"
+                      className="btn btn-outline-primary active btn-sm sektor font-weight-bold"
                       aria-pressed="false"
+                      value=""
+                      id="all"
                     >
                       Semua
                     </button>
@@ -365,7 +381,6 @@ export default function VotePage() {
                     return (
                       <Fragment key={i}>
                         <tr style={{ width: "100%" }}>
-                          {/* <td style={{ width: '2%', textAlign: 'center' }}>{item.id}</td> */}
                           <td className="p-1 m-0" style={{ width: "43%" }}>
                             {item.name}
                           </td>
@@ -533,8 +548,10 @@ export default function VotePage() {
                         7
                       </button>
                       <button
-                        className="btn btn-outline-primary btn-sm clear2 font-weight-bold"
+                        className="btn btn-outline-primary btn-sm sektor2 font-weight-bold"
                         aria-pressed="false"
+                        value=""
+                        id="all2"
                       >
                         Semua
                       </button>
@@ -614,12 +631,13 @@ export default function VotePage() {
           <div className="row m-2 justify-content-center">
             <div className="col-sm-2 justify-content-center mx-auto">
               <Link to="/confirmpage">
-                <button
-                  className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
-                  disabled={disable}
-                >
-                  Vote
-                </button>
+              <button
+                id="submit"
+                className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
+                disabled={disable}
+              >
+                Vote
+              </button>
               </Link>
             </div>
           </div>

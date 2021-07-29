@@ -82,8 +82,8 @@ export default function LandingPage() {
                 <div className="col-md-12">
                   <p className="font-weight-bold text-danger">
                     <span>***</span> Perhatikan gambaran tugas Penatua dan
-                    Diaken agar dapat mempertimbangkan nama yang akan bapak/ibu,
-                    sdra (i) rekomendasikan!
+                    Diaken agar dapat mempertimbangkan nama yang akan Bapak/Ibu,
+                    Sdra(i) rekomendasikan!
                   </p>
                 </div>
               </div>
@@ -223,7 +223,7 @@ export default function LandingPage() {
                         <p className="mb-1">
                           <BsStopFill className="text-primary" /> Jabatan
                           seorang Penatua ditanggalkan sebelum masa tugasnya
-                          berakhir, jika :
+                          berakhir jika :
                         </p>
                         <p className="ml-3 mb-1">
                           <strong>a.</strong> Pindah menjadi anggota jemaat atau
@@ -235,7 +235,7 @@ export default function LandingPage() {
                         </p>
                         <p className="ml-3 mb-1">
                           <strong>c.</strong> Mengundurkan diri karena
-                          alasan-alasan yang dapat dipertanggungjawabkan..
+                          alasan-alasan yang dapat dipertanggungjawabkan.
                         </p>
                       </div>
                       <p className="mb-1">
@@ -357,7 +357,7 @@ export default function LandingPage() {
                       <p className="mb-1">
                         <BsStopFill className="text-primary" /> Mengadakan
                         pertemuan khusus secara periodik untuk membicarakan
-                        tugas pokok Diaken
+                        tugas pokok Diaken.
                       </p>
                     </ul>
                     <strong>

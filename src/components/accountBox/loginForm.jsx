@@ -1,118 +1,108 @@
-import React, { useContext, useState } from 'react';
-import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton } from './common';
-import { Marginer } from '../marginer';
-import { AccountContext } from './index';
-import { BsFillForwardFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-
-import axios from 'axios';
-import { AuthContext } from '../../App';
-const qs = require('querystring');
-const api = 'http://localhost:3001';
+import React, { useState } from "react";
+import { BoxContainer, FormContainer, Input, SubmitButton } from "./common";
+import { Marginer } from "../marginer";
+// import { Redirect } from "react-router-dom";
+// import { signin, authenticate, isAuthenticated } from "../../auth";
 
 export function LoginForm(props) {
-	const { switchToSignup } = useContext(AccountContext);
-	const { dispatch } = useContext(AuthContext);
+  const [values, setValues] = useState({
+    idLogin: "",
+    password: "",
+    error: "",
+    loading: false,
+    redirectToReferrer: false
+  });
 
-	const initialState = {
-		nohp: '',
-		password: '',
-		isSubmitting: false,
-		errorMessage: null,
-	};
+  //   const { idLogin, password, loading, error, redirectToReferrer } = values;
+  //   const { user } = isAuthenticated();
 
-	const [data, setData] = useState(initialState);
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, error: false, [name]: event.target.value });
+  };
 
-	const handleInputChange = (event) => {
-		setData({
-			...data,
-			[event.target.name]: event.target.value,
-		});
-	};
+  //   const clickSubmit = (event) => {
+  //     event.preventDefault();
+  //     setValues({ ...values, error: false, loading: true });
+  //     signin({ idLogin, password }).then((data) => {
+  //       if (data.error) {
+  //         setValues({ ...values, error: data.error, loading: false });
+  //       } else {
+  //         authenticate(data, () => {
+  //           setValues({
+  //             ...values,
+  //             redirectToReferrer: true
+  //           });
+  //         });
+  //       }
+  //     });
+  //   };
+  //   const showError = () => (
+  //     <div
+  //       className="alert alert-danger"
+  //       style={{ display: error ? "" : "none" }}
+  //     >
+  //       {error}
+  //     </div>
+  //   );
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		setData({
-			...data,
-			isSubmitting: true,
-			errorMessage: null,
-		});
-		console.log(data);
-		const requestBody = {
-			nohp: data.nohp,
-			password: data.password,
-		};
+  //   const showLoading = () =>
+  //     loading && (
+  //       <div className="alert alert-info">
+  //         <h2>Loading...</h2>
+  //       </div>
+  //     );
 
-		const config = {
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-		};
+  //   const redirectUser = () => {
+  //     if (redirectToReferrer) {
+  //       if (user && user.role === 1) {
+  //         return <Redirect to="/admin" />;
+  //       } else {
+  //         return <Redirect to="/landingpage" />;
+  //       }
+  //     }
+  //     if (isAuthenticated()) {
+  //       return <Redirect to="/" />;
+  //     }
+  //   };
 
-		axios.post(api + '/auth/api/v1/login', qs.stringify(requestBody), config).then((res) => {
-			if (res.data.success === true) {
-				dispatch({
-					type: 'LOGIN',
-					payload: res.data,
-				});
-			} else {
-				setData({
-					...data,
-					isSubmitting: false,
-					errorMessage: res.data.message,
-				});
-			}
-			setData({
-				...data,
-				isSubmitting: false,
-				errorMessage: res.data.message,
-			});
-			throw res;
-		});
-	};
-
-	return (
+  return (
     <BoxContainer>
-      <FormContainer onSubmit={handleSubmit}>
+      {/* {showLoading()}
+      {showError()} */}
+      {/* {redirectUser()} */}
+      <FormContainer>
         <Input
           type="number"
           id="tglLahir"
-          onChange={handleInputChange}
-          value={data.nohp}
-          name="nohp"
+          onChange={handleChange("idLogin")}
+          //   value={idLogin}
+          name="idLogin"
           required
           autoFocus
-          placeholder="Gunakan tgl lahir. Contoh: 25121990"
+          placeholder="Tanggal Lahir Contoh: 25121990"
         />
 
         <Input
           type="password"
-          onChange={handleInputChange}
-          value={data.password}
+          onChange={handleChange("password")}
+          //   value={password}
           name="password"
           required
           placeholder="Password"
         />
         <Marginer direction="vertical" margin={10} />
         <Marginer direction="vertical" margin="1.6em" />
-        {/* <SubmitButton disabled={data.isSubmitting} type="submit">
-					{data.isSubmitting ? '...Loading' : 'Lanjutkan'}
-				</SubmitButton> */}
-        <Link to="/landingpage">
-          <SubmitButton className="submit-btn" to="/landingpage" type="submit">
-            {data.isSubmitting ? "...Loading" : "Lanjutkan"}
-          </SubmitButton>
-        </Link>
-        {data.errorMessage ? <div>{data.errorMessage}</div> : null}
+        <SubmitButton
+          //   onClick={clickSubmit}
+          className="w-75 submit-btn p-2 d-flex justify-content-center mx-auto"
+          to="/landingpage"
+          type="submit"
+        >
+          Login
+        </SubmitButton>
       </FormContainer>
 
       <Marginer direction="vertical" margin="1em" />
-      <MutedLink>
-        Klik tanda panah untuk mengganti password!{" "}
-        <BoldLink onClick={switchToSignup}>
-          <BsFillForwardFill />
-        </BoldLink>
-      </MutedLink>
     </BoxContainer>
   );
 }

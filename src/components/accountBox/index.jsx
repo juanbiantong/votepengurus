@@ -33,8 +33,8 @@ const TopContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 1.8em;
-  padding-bottom: 5em;
+  padding: 0 2em;
+  padding-bottom: 1em;
 `;
 
 const BackDrop = styled(motion.div)`
@@ -45,14 +45,14 @@ const BackDrop = styled(motion.div)`
   flex-direction: column;
   border-radius: 50%;
   transform: rotate(60deg);
-  top: -290px;
+  top: -250px;
   left: -70px;
-  background: rgb(2,0,36);
+  background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
-    rgba(2,0,36,1) 0%,
-    rgba(9,9,121,1) 35%,
-    rgba(0,212,255,1) 100%
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
   );
   z-index: 9;
 `;
@@ -64,21 +64,31 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderText = styled.h2`
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1.24;
   color: #fff;
   z-index: 10;
   margin: 0;
+  text-align: center;
 `;
 
-const SmallText = styled.h5`
+const MidleText = styled.h5`
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  z-index: 10;
+  margin: 0;
+  margin-top: 7px;
+`;
+const SmallText = styled.p`
   color: #fff;
   font-weight: 500;
   font-size: 11px;
   z-index: 10;
   margin: 0;
   margin-top: 7px;
+  font-style: italic;
 `;
 
 const InnerContainer = styled.div`
@@ -93,20 +103,20 @@ const backdropVariants = {
     width: "233%",
     height: "1050px",
     borderRadius: "20%",
-    transform: "rotate(60deg)",
+    transform: "rotate(60deg)"
   },
   collapsed: {
     width: "160%",
     height: "550px",
     borderRadius: "50%",
-    transform: "rotate(60deg)",
-  },
+    transform: "rotate(60deg)"
+  }
 };
 
 const expandingTransition = {
   type: "spring",
   duration: 2.3,
-  stiffness: 30,
+  stiffness: 30
 };
 
 export function AccountBox(props) {
@@ -137,41 +147,47 @@ export function AccountBox(props) {
   const contextValue = { switchToSignup, switchToSignin };
 
   return (
-		<AccountContext.Provider value={contextValue}>
-			<React.Fragment>
-				<AppContainer>
-					<BoxContainer>
-						<TopContainer>
-							<BackDrop
-								initial={false}
-								animate={isExpanded ? 'expanded' : 'collapsed'}
-								variants={backdropVariants}
-								transition={expandingTransition}
-							/>
-							{active === 'signin' && (
-								<HeaderContainer>
-									<HeaderText>Pilih Penatua & Diaken</HeaderText>
-									<HeaderText>Getor Depok</HeaderText>
-									<SmallText>
-										Silahkan masukkan tanggla lahir dan password untuk melakukan pemilihan!
-									</SmallText>
-								</HeaderContainer>
-							)}
-							{active === 'signup' && (
-								<HeaderContainer>
-									<HeaderText>Ganti</HeaderText>
-									<HeaderText>Password</HeaderText>
-									<SmallText>Jangan lupa untuk mencatat password baru yang telah dibuat!</SmallText>
-								</HeaderContainer>
-							)}
-						</TopContainer>
-						<InnerContainer>
-							{active === 'signin' && <LoginForm />}
-							{active === 'signup' && <SignupForm />}
-						</InnerContainer>
-					</BoxContainer>
-				</AppContainer>
-			</React.Fragment>
-		</AccountContext.Provider>
+    <AccountContext.Provider value={contextValue}>
+      <React.Fragment>
+        <AppContainer>
+          <BoxContainer>
+            <TopContainer>
+              <BackDrop
+                initial={false}
+                animate={isExpanded ? "expanded" : "collapsed"}
+                variants={backdropVariants}
+                transition={expandingTransition}
+              />
+              {active === "signin" && (
+                <HeaderContainer>
+                  <HeaderText>Pilih Penatua & Diaken</HeaderText>
+                  <HeaderText>Getor Depok</HeaderText>
+                  <MidleText className="bg-warning mx-auto rounded p-1">
+                    Periode 2021 - 2024
+                  </MidleText>
+                  <SmallText>
+                    Silahkan masukkan tanggal lahir dan password untuk melakukan
+                    pemilihan!
+                  </SmallText>
+                </HeaderContainer>
+              )}
+              {active === "signup" && (
+                <HeaderContainer>
+                  <HeaderText>Ganti</HeaderText>
+                  <HeaderText>Password</HeaderText>
+                  <SmallText>
+                    Jangan lupa untuk mencatat password baru yang telah dibuat!
+                  </SmallText>
+                </HeaderContainer>
+              )}
+            </TopContainer>
+            <InnerContainer>
+              {active === "signin" && <LoginForm />}
+              {active === "signup" && <SignupForm />}
+            </InnerContainer>
+          </BoxContainer>
+        </AppContainer>
+      </React.Fragment>
+    </AccountContext.Provider>
   );
 }

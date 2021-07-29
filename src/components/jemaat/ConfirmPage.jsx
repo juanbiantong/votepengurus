@@ -62,12 +62,12 @@ export default function ConfirmPage() {
                     </p>
                     <p className="mb-2">
                       &emsp;Tim kerja pemilihan Penatua dan Diaken akan
-                      melaksanakan rapat dan mengkonfirmasi bakal calon
-                      terpilih. Setelah bakal calon ditetapkan yaitu 2 kali dari
-                      jumlah komposisi majelis yang dibutuhkan yakni sebanyak 72
-                      orang yang terdiri dari 36 Penatua dan 36 Diaken, maka
+                      melaksanakan rapat dan mengonfirmasi bakal calon terpilih.
+                      Setelah bakal calon ditetapkan yaitu 2 kali dari jumlah
+                      komposisi majelis yang dibutuhkan yakni sebanyak 72 orang
+                      yang terdiri dari 36 Penatua dan 36 Diaken, maka
                       selanjutnya akan dilaksanakan pemilihan majelis pada
-                      tanggal 12 September 2021, setelah ibadah hari minggu.
+                      tanggal 12 September 2021, setelah ibadah hari Minggu.
                     </p>
                     <p className="mb-2">
                       &emsp;Harap bapak/ibu bisa mengikuti kembali!
