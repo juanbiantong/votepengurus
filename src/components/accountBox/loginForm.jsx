@@ -3,6 +3,7 @@ import { BoxContainer, FormContainer, Input, SubmitButton } from "./common";
 import { Marginer } from "../marginer";
 // import { Redirect } from "react-router-dom";
 // import { signin, authenticate, isAuthenticated } from "../../auth";
+import { Link } from "react-router-dom";
 
 export function LoginForm(props) {
   const [values, setValues] = useState({
@@ -92,14 +93,16 @@ export function LoginForm(props) {
         />
         <Marginer direction="vertical" margin={10} />
         <Marginer direction="vertical" margin="1.6em" />
-        <SubmitButton
-          //   onClick={clickSubmit}
-          className="w-75 submit-btn p-2 d-flex justify-content-center mx-auto"
-          to="/landingpage"
-          type="submit"
-        >
-          Login
-        </SubmitButton>
+        <Link to="/landingpage">
+          <SubmitButton
+            //   onClick={clickSubmit}
+            className="w-75 submit-btn p-2 d-flex justify-content-center mx-auto"
+            to="/landingpage"
+            type="submit"
+          >
+            Login
+          </SubmitButton>
+        </Link>
       </FormContainer>
 
       <Marginer direction="vertical" margin="1em" />
