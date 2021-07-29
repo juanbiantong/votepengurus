@@ -6,6 +6,7 @@ body {
   font-family: "Recursive", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: contain;
 }
 @media screen and (max-width: 992px) {
   body {

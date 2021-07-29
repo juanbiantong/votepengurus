@@ -209,9 +209,6 @@ export default function VotePage() {
 
   //untuk fungsi search berdasarkan sektor dan nama balon
   $(document).ready(function () {
-    $(window).on("unload", function () {
-      $(window).scrollTop(0);
-    });
     //filter button balon
     $(".sektor").click(function (e) {
       let value = $(this).val();
