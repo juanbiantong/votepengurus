@@ -7,7 +7,7 @@ import { SignupForm } from "./signupForm";
 
 export const AccountContext = createContext();
 
-const AppContainer = styled.div`
+export const AppContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -15,7 +15,7 @@ const AppContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const BoxContainer = styled.div`
+export const BoxContainer = styled.div`
   width: 320px;
   min-height: 568px;
   display: flex;
@@ -27,7 +27,7 @@ const BoxContainer = styled.div`
   overflow: hidden;
 `;
 
-const TopContainer = styled.div`
+export const TopContainer = styled.div`
   width: 100%;
   height: 250px;
   display: flex;
@@ -37,7 +37,7 @@ const TopContainer = styled.div`
   padding-bottom: 1em;
 `;
 
-const BackDrop = styled(motion.div)`
+export const BackDrop = styled(motion.div)`
   width: 160%;
   height: 550px;
   position: absolute;
@@ -57,13 +57,13 @@ const BackDrop = styled(motion.div)`
   z-index: 9;
 `;
 
-const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-const HeaderText = styled.h2`
+export const HeaderText = styled.h2`
   font-size: 22px;
   font-weight: 600;
   line-height: 1.24;
@@ -73,7 +73,7 @@ const HeaderText = styled.h2`
   text-align: center;
 `;
 
-const MidleText = styled.h5`
+export const MidleText = styled.h5`
   color: #fff;
   font-weight: 500;
   font-size: 14px;
@@ -81,7 +81,7 @@ const MidleText = styled.h5`
   margin: 0;
   margin-top: 7px;
 `;
-const SmallText = styled.p`
+export const SmallText = styled.p`
   color: #fff;
   font-weight: 500;
   font-size: 11px;
@@ -91,14 +91,14 @@ const SmallText = styled.p`
   font-style: italic;
 `;
 
-const InnerContainer = styled.div`
+export const InnerContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0 1.8em;
 `;
 
-const backdropVariants = {
+export const backdropVariants = {
   expanded: {
     width: "233%",
     height: "1050px",
@@ -113,7 +113,7 @@ const backdropVariants = {
   }
 };
 
-const expandingTransition = {
+export const expandingTransition = {
   type: "spring",
   duration: 2.3,
   stiffness: 30
