@@ -10,7 +10,7 @@ body {
 }
 @media screen and (max-width: 992px) {
   body {
-    font-size: smaller;
+     font-size: 14px !important;
   }
   h4 {
     font-size: 16px !important;
@@ -25,7 +25,7 @@ body {
 /* On screens that are 414px or less, set the background color to olive */
 @media screen and (max-width: 320px) {
   body {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { useReducer, createContext, useState } from 'react';
 import styled from "styled-components";
-import { BoxContainer, AppContainer, HeaderContainer, HeaderText, MidleText, SmallText } from './components/accountBox';
-import { FormContainer } from './components/accountBox/common'
+import { AppContainer, HeaderContainer, HeaderText, MidleText, SmallText } from './components/accountBox';
+import { } from './components/accountBox/common'
 import { Marginer } from "./components/marginer";
 import Admin from "./components/admin/Admin";
 import Jemaat from "./components/jemaat/Jemaat";
@@ -15,14 +15,28 @@ const initiaState = {
   user: null,
   token: null,
 };
+
+const BoxContainer = styled.div`
+  width: 320px;
+  min-height: 568px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 19px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px rgba(169, 178, 230, 0.9);
+  position: relative;
+  overflow: hidden;
+  padding-top: 0.5em;
+`;
+
 const TopContainer = styled.div`
   width: 100%;
   height: 270px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 2em;
-  padding-bottom: 1em;
+  padding: 2em;
+
 `;
 
 const BackDrop = styled.div`
@@ -33,7 +47,7 @@ const BackDrop = styled.div`
   flex-direction: column;
   border-radius: 50%;
   transform: rotate(60deg);
-  top: -250px;
+  top: -260px;
   left: -70px;
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -54,6 +68,13 @@ const CountBoxInner = styled.div`
   border-radius: 13px;
   background-color: white;
 `
+export const FormContainer = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19); */
+  border-radius: 10px;
+`;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -90,7 +111,7 @@ function App() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   // let countDownDate = new Date("Aug 1, 2021 11:00:00").getTime();
-  let countDownDate = new Date("Aug 1, 2021 11:00:00").getTime();
+  let countDownDate = new Date("Jul 30, 2021 11:00:00").getTime();
 
   // Update the count down every 1 second
   let countdownfunction = setInterval(function () {
@@ -124,9 +145,12 @@ function App() {
       <AppContainer>
         <BoxContainer>
           <TopContainer>
+
             <BackDrop
             />
-            <HeaderContainer>
+
+            <HeaderContainer >
+
               <HeaderText>Mohon bersabar. Aplikasi pemilihan akan segera dibuka pada:</HeaderText>
               <MidleText className="bg-warning mx-auto rounded p-2">
                 <strong>
@@ -143,17 +167,21 @@ function App() {
                 Silahkan menghubungi Tim PPD yang bertugas jika terdapat kendala saat proses pemilihan!
               </SmallText>
               <SmallText>
-                Proses pemilihan berlangsung hingga pukul 14:00 WIB.
+                Proses pemilihan berlangsung hingga pukul 16:00 WIB.
               </SmallText>
             </HeaderContainer>
+            <div className="loadingio-spinner-pulse-82bikf67df p=0">
+              <div className="ldio-e9m0nhjt9n">
+                <div></div><div></div><div></div>
+              </div>
+            </div>
           </TopContainer>
-          <FormContainer className="mt-5">
-            <CountBox className="middle mr-3 ml-3 mt-4">
-              <CountBoxInner className="p-3">
+
+          <FormContainer className="mt-5 pt-3">
+
+            <CountBox className="middle mr-3 ml-3 mt-5">
+              <CountBoxInner className="p-2">
                 <h3>SEGERA!!!</h3>
-                <div className="loadingio-spinner-pulse-82bikf67df"><div className="ldio-e9m0nhjt9n">
-                  <div></div><div></div><div></div>
-                </div></div>
                 <div style={{ fontSize: 36 }} className="d-flex justify-content-around" >
                   <div>
                     <p className="m-0">{days}</p>

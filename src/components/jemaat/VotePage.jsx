@@ -144,7 +144,7 @@ export default function VotePage() {
   const handleDisable = (even) => {
     let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
     let diakenCheck = Array.from(document.getElementsByClassName(`diaken`));
-   
+
     if (totalPenatua === 0 && totalDiaken === 0) {
       Swal.fire({
         position: "center",
@@ -396,7 +396,7 @@ export default function VotePage() {
                             }}
                           >
                             <form className="custom2">
-                              <div className="penatuacheck">
+                              <div className="d-flex mt-1">
                                 <input
                                   id={`penatua${item.id}`}
                                   type="checkbox"
@@ -405,9 +405,9 @@ export default function VotePage() {
                                   className={`penatua`}
                                   value="penatua"
                                 />
-                                <label>&nbsp;Penatua</label>
+                                <strong>&nbsp;Penatua</strong>
                               </div>
-                              <div className="diakencheck">
+                              <div className="d-flex mt-1">
                                 <input
                                   id={`diaken${item.id}`}
                                   type="checkbox"
@@ -416,7 +416,7 @@ export default function VotePage() {
                                   className={`diaken`}
                                   value="diaken"
                                 />
-                                <label>&nbsp;Diaken</label>
+                                <strong>&nbsp;Diaken</strong>
                               </div>
                             </form>
                           </td>
@@ -460,23 +460,23 @@ export default function VotePage() {
             >
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
-                  <div className="modal-header bg-cust2">
-                    <ul className="nav ">
+                  <div className="modal-header pl-2 pr-0 pb-0 pt-2 bg-cust2 ">
+                    <ul className="nav mx-auto">
                       <li className="nav-item ">
-                        <strong className="mr-2 ml-2 p-0 d-flex text-light">
+                        <p className="m-0 p-0 d-flex text-light">
                           Total Penatua yang anda pilih{" "}
                           <span className="badge bg-warning m-1">
                             {totalPenatua}
                           </span>{" "}
                           Orang
-                        </strong>
-                        <strong className="mr-2 ml-2 p-0 text-light">
+                        </p>
+                        <p className="m-0 p-0 pb-2 text-light">
                           Total Penatua yang anda pilih{" "}
                           <span className="badge bg-warning m-1">
                             {totalDiaken}
                           </span>{" "}
                           Orang
-                        </strong>
+                        </p>
                       </li>
                     </ul>
                     <button
@@ -628,13 +628,13 @@ export default function VotePage() {
           <div className="row m-2 justify-content-center">
             <div className="col-sm-2 justify-content-center mx-auto">
               <Link to="/confirmpage">
-              <button
-                id="submit"
-                className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
-                disabled={disable}
-              >
-                Vote
-              </button>
+                <button
+                  id="submit"
+                  className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
+                  disabled={disable}
+                >
+                  Vote
+                </button>
               </Link>
             </div>
           </div>
