@@ -170,15 +170,15 @@ function App() {
                 Proses pemilihan berlangsung hingga pukul 16:00 WIB.
               </SmallText>
             </HeaderContainer>
-            <div className="loadingio-spinner-pulse-82bikf67df p=0">
+
+          </TopContainer>
+
+          <FormContainer className="mt-3 pt-3">
+            <div className="loadingio-spinner-pulse-82bikf67df">
               <div className="ldio-e9m0nhjt9n">
                 <div></div><div></div><div></div>
               </div>
             </div>
-          </TopContainer>
-
-          <FormContainer className="mt-5 pt-3">
-
             <CountBox className="middle mr-3 ml-3 mt-5">
               <CountBoxInner className="p-2">
                 <h3>SEGERA!!!</h3>
