@@ -210,8 +210,24 @@ export default function VotePage() {
   //untuk fungsi search berdasarkan sektor dan nama balon
   $(document).ready(function () {
     //filter button balon
+    $(".sektor").click(function (e) {
+      let value = $(this).val();
+      $(this).addClass("active");
+      $(".sektor").not(this).removeClass("active");
+      $("#myTable tr").filter(function () {
+        return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
 
     //filter button review pilihan
+    $(".sektor2").click(function (e) {
+      let value = $(this).val();
+      $(this).addClass("active");
+      $(".sektor2").not(this).removeClass("active");
+      $("#myTable2 tr").filter(function () {
+        return $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
 
     //filter search ballon
     $("#myInput").on("keyup", function () {
@@ -263,7 +279,72 @@ export default function VotePage() {
                     Orang
                   </strong>
                 </li>
-                <li className="nav-item mx-auto m-1 p-1 m-0 d-flex flex-wrap justify-content-center"></li>
+                <li className="nav-item mx-auto m-1 p-1 m-0 d-flex flex-wrap justify-content-center">
+                  <div className="mb-1 p-1 bg-warning mx-auto rounded">
+                    <label className="m-0 pl-2 pr-2">
+                      Cari berdasarkan sektor
+                    </label>
+                  </div>
+                  <div className="ml-2">
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="true"
+                      value="1"
+                    >
+                      1
+                    </button>
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value="2"
+                    >
+                      2
+                    </button>
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value="3"
+                    >
+                      3
+                    </button>
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value="4"
+                    >
+                      4
+                    </button>
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value="5"
+                    >
+                      5
+                    </button>
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value="6"
+                    >
+                      6
+                    </button>
+                    <button
+                      className="btn btn-outline-primary btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value="7"
+                    >
+                      7
+                    </button>
+                    <button
+                      className="btn btn-outline-primary active btn-sm sektor font-weight-bold"
+                      aria-pressed="false"
+                      value=""
+                      id="all"
+                    >
+                      Semua
+                    </button>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -287,8 +368,8 @@ export default function VotePage() {
               <table className="table tableFixHead table-bordered table-striped table-xs">
                 <thead className="m-0 ">
                   <tr>
-                    <th className="p-1 m-0">Foto</th>
                     <th className="p-1 m-0">Nama Lengkap</th>
+                    <th className="p-1 m-0">Skt</th>
                     <th className="p-1 m-0 text-center">Jabatan</th>
                   </tr>
                 </thead>
@@ -297,16 +378,14 @@ export default function VotePage() {
                     return (
                       <Fragment key={i}>
                         <tr style={{ width: "100%" }}>
-                          <td className="p-1 m-0">
-                            <img
-                              src="assets/avatar.jpeg"
-                              alt="avatar"
-                              className="brand-image elevation-3 bg-warning rounded"
-                              style={{ opacity: ".8", width: 65}}
-                            />
-                          </td>
                           <td className="p-1 m-0" style={{ width: "43%" }}>
                             {item.name}
+                          </td>
+                          <td
+                            className="p-1 m-0"
+                            style={{ width: "1%", textAlign: "center" }}
+                          >
+                            {item.sector}
                           </td>
                           <td
                             className="p-1 m-0"
@@ -327,6 +406,17 @@ export default function VotePage() {
                                   value="penatua"
                                 />
                                 <strong>&nbsp;Penatua</strong>
+                              </div>
+                              <div className="d-flex mt-1">
+                                <input
+                                  id={`diaken${item.id}`}
+                                  type="checkbox"
+                                  name={`vote${item.id}`}
+                                  onChange={handleCheckbox}
+                                  className={`diaken`}
+                                  value="diaken"
+                                />
+                                <strong>&nbsp;Diaken</strong>
                               </div>
                             </form>
                           </td>
