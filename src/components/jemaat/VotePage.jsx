@@ -301,7 +301,7 @@ export default function VotePage() {
                             <img
                               src="assets/avatar.jpeg"
                               alt="avatar"
-                              className="brand-image elevation-3 bg-warning rounded"
+                              className="brand-image border border-warning elevation-3 bg-warning rounded"
                               style={{ opacity: ".8", width: 75 }}
                             />
                           </td>
