@@ -7,7 +7,8 @@ import Swal from "sweetalert2";
 import Header from "./Header";
 
 export default function VotePage() {
-  const [data, setData] = useState([]);
+  const [dataPenatua, setDataPenatua] = useState([]);
+  const [dataDiaken, setDataDiaken] = useState([]);
   const [totalPenatua, setTotalPenatua] = useState(0);
   const [totalDiaken, setTotalDiaken] = useState(0);
   const [disable, setDisable] = useState(true);
@@ -15,131 +16,60 @@ export default function VotePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(
-        "https://my-json-server.typicode.com/JuanBiantong/db_anggota/anggota"
+      const resPenatua = await axios.get(
+        "https://my-json-server.typicode.com/JuanBiantong/db_anggota/penatua"
       );
-      setData(res.data);
+      const resDiaken = await axios.get(
+        "https://my-json-server.typicode.com/JuanBiantong/db_anggota/diaken"
+      );
+      setDataDiaken(resDiaken.data);
+      setDataPenatua(resPenatua.data);
     };
     fetchData();
   }, []);
 
   const handleCheckbox = (even) => {
-    let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
-    let diakenCheck = Array.from(document.getElementsByClassName(`diaken`));
-
-    data.map((d, index) => {
-      let myCheckbox = document.getElementsByName(`vote${d.id}`);
-      if (even.target.name === `vote${d.id}` && even.target.checked) {
-        //pilih salahsatu checkbox tiap row
-        myCheckbox.forEach((element) => {
-          element.checked = false;
-        });
-        even.target.checked = true;
-      }
-
-      //manipulate data penatua
+    dataPenatua.map((d, index) => {
       if (`penatua${d.id}` === even.target.id) {
-        let tmp_array = data;
+        let tmp_array = dataPenatua;
         if (even.target.value === "penatua" && even.target.checked) {
           tmp_array[index].penatua = 1;
-          tmp_array[index].diaken = 0;
-          setData(tmp_array);
+          setDataPenatua(tmp_array);
         } else {
           tmp_array[index].penatua = 0;
-          setData(tmp_array);
-        }
-        if (
-          penatuaCheck.filter((item) => {
-            return item.checked;
-          }).length === 5
-        ) {
-          Swal.fire({
-            position: "center",
-            icon: "warning",
-            html: "<strong>Batas Maksimum Pilihan Penatua</strong>",
-            showConfirmButton: true,
-            confirmButtonColor: "#ec9e0d"
-          });
+          setDataPenatua(tmp_array);
         }
       }
 
-      //manipulate data diaken
+      return d;
+    });
+
+    dataDiaken.map((d, index) => {
       if (`diaken${d.id}` === even.target.id) {
-        let tmp_array = data;
+        let tmp_array = dataDiaken;
         if (even.target.value === "diaken" && even.target.checked) {
           tmp_array[index].diaken = 1;
-          tmp_array[index].penatua = 0;
-          setData(tmp_array);
+          setDataDiaken(tmp_array);
         } else {
           tmp_array[index].diaken = 0;
-          setData(tmp_array);
-        }
-        if (
-          diakenCheck.filter((item) => {
-            return item.checked;
-          }).length === 5
-        ) {
-          Swal.fire({
-            position: "center",
-            icon: "warning",
-            html: "<strong>Batas Maksimum Pilihan Diaken</strong>",
-            showConfirmButton: true,
-            confirmButtonColor: "#ec9e0d"
-          });
+          setDataDiaken(tmp_array);
         }
       }
 
-      //handle disable checkbox base on maximum length
-      if (
-        penatuaCheck.filter((item) => {
-          return item.checked;
-        }).length === 5
-      ) {
-        penatuaCheck.forEach((element) => {
-          if (element.checked === false) {
-            element.disabled = true;
-          }
-        });
-      } else {
-        penatuaCheck.forEach((element) => {
-          if (element.checked === false) {
-            element.disabled = false;
-          }
-        });
-      }
-
-      if (
-        diakenCheck.filter((item) => {
-          return item.checked;
-        }).length === 5
-      ) {
-        diakenCheck.forEach((element) => {
-          if (element.checked === false) {
-            element.disabled = true;
-          }
-        });
-      } else {
-        diakenCheck.forEach((element) => {
-          if (element.checked === false) {
-            element.disabled = false;
-          }
-        });
-      }
       return d;
     });
 
     setTotalPenatua(
-      penatuaCheck.filter((item) => {
-        return item.checked;
+      dataPenatua.filter((item) => {
+        return item.penatua;
       }).length
     );
     setTotalDiaken(
-      diakenCheck.filter((item) => {
-        return item.checked;
+      dataDiaken.filter((item) => {
+        return item.diaken;
       }).length
     );
   };
-
   //handle confirmatin checkbox
   const handleDisable = (even) => {
     let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
@@ -198,10 +128,9 @@ export default function VotePage() {
       setDisable(true);
     }
   };
-
   //filter hasil check untuk taplihan summary
   const handleVote = () => {
-    let tmp_vote = data.filter(function (el) {
+    let tmp_vote = dataPenatua.filter(function (el) {
       return el.penatua === 1 || el.diaken === 1;
     });
     setVote(tmp_vote);
@@ -287,33 +216,40 @@ export default function VotePage() {
               <table className="table tableFixHead table-bordered table-striped table-xs">
                 <thead className="m-0 ">
                   <tr>
-                    <th className="p-1 m-0">Foto</th>
+                    <th className="p-1 m-0 ">Foto</th>
                     <th className="p-1 m-0">Nama Lengkap</th>
-                    <th className="p-1 m-0 text-center">Jabatan</th>
+                    <th className="p-1 m-0">Jabatan</th>
                   </tr>
                 </thead>
                 <tbody id="myTable">
-                  {data.map((item, i) => {
+                  {dataPenatua.map((item, i) => {
                     return (
                       <Fragment key={i}>
                         <tr style={{ width: "100%" }}>
-                          <td className="p-1 m-0">
+                          <td className="p-1 m-0 justify-content-center rounded">
                             <img
-                              src="assets/avatar.jpeg"
+                              src={item.avatar}
                               alt="avatar"
-                              className="brand-image border border-warning elevation-3 bg-warning rounded"
-                              style={{ opacity: ".8", width: 75 }}
+                              className="rounded"
+                              style={{
+                                opacity: ".8",
+                                width: 50,
+                                verticalAlign: "middle"
+                              }}
                             />
                           </td>
-                          <td className="p-1 m-0" style={{ width: "43%" }}>
+                          <td
+                            className="p-1 m-0 text-bold"
+                            valign="center"
+                            style={{ width: "43%", verticalAlign: "middle" }}
+                          >
                             {item.name}
                           </td>
                           <td
-                            className="p-1 m-0"
+                            className="p-1 m-0 "
                             style={{
                               width: "56%",
-                              alignItems: "center",
-                              lineHeight: "100%"
+                              verticalAlign: "middle"
                             }}
                           >
                             <form className="custom2">
@@ -327,6 +263,54 @@ export default function VotePage() {
                                   value="penatua"
                                 />
                                 <strong>&nbsp;Penatua</strong>
+                              </div>
+                            </form>
+                          </td>
+                        </tr>
+                      </Fragment>
+                    );
+                  })}
+                  {dataDiaken.map((item, i) => {
+                    return (
+                      <Fragment key={i}>
+                        <tr style={{ width: "100%" }}>
+                          <td className="p-1 m-0 justify-content-center">
+                            <img
+                              src={item.avatar}
+                              alt="avatar"
+                              className="rounded border border-warning"
+                              style={{
+                                opacity: ".8",
+                                width: 50,
+                                verticalAlign: "middle"
+                              }}
+                            />
+                          </td>
+                          <td
+                            className="p-1 m-0 text-bold"
+                            valign="center"
+                            style={{ width: "43%", verticalAlign: "middle" }}
+                          >
+                            {item.name}
+                          </td>
+                          <td
+                            className="p-1 m-0"
+                            style={{
+                              width: "56%",
+                              verticalAlign: "middle"
+                            }}
+                          >
+                            <form className="custom2">
+                              <div className="d-flex mt-1">
+                                <input
+                                  id={`diaken${item.id}`}
+                                  type="checkbox"
+                                  name={`vote${item.id}`}
+                                  onChange={handleCheckbox}
+                                  className={`diaken`}
+                                  value="diaken"
+                                />
+                                <strong>&nbsp;Diaken</strong>
                               </div>
                             </form>
                           </td>
