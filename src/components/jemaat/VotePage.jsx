@@ -29,6 +29,9 @@ export default function VotePage() {
   }, []);
 
   const handleCheckbox = (even) => {
+    let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
+    let diakenCheck = Array.from(document.getElementsByClassName(`diaken`));
+
     dataPenatua.map((d, index) => {
       if (`penatua${d.id}` === even.target.id) {
         let tmp_array = dataPenatua;
@@ -39,8 +42,39 @@ export default function VotePage() {
           tmp_array[index].penatua = 0;
           setDataPenatua(tmp_array);
         }
+        if (
+          dataPenatua.filter((item) => {
+            return item.penatua;
+          }).length === 5
+        ) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            html: "<strong>Batas Maksimum Pilihan Penatua</strong>",
+            showConfirmButton: true,
+            confirmButtonColor: "#ec9e0d"
+          });
+        }
       }
 
+      //handle disable checkbox base on maximum length
+      if (
+        penatuaCheck.filter((item) => {
+          return item.checked;
+        }).length === 5
+      ) {
+        penatuaCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = true;
+          }
+        });
+      } else {
+        penatuaCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = false;
+          }
+        });
+      }
       return d;
     });
 
@@ -54,6 +88,38 @@ export default function VotePage() {
           tmp_array[index].diaken = 0;
           setDataDiaken(tmp_array);
         }
+        if (
+          dataDiaken.filter((item) => {
+            return item.diaken;
+          }).length === 5
+        ) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            html: "<strong>Batas Maksimum Pilihan Diaken</strong>",
+            showConfirmButton: true,
+            confirmButtonColor: "#ec9e0d"
+          });
+        }
+      }
+
+      //handle disable checkbox base on maximum length
+      if (
+        diakenCheck.filter((item) => {
+          return item.checked;
+        }).length === 5
+      ) {
+        diakenCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = true;
+          }
+        });
+      } else {
+        diakenCheck.forEach((element) => {
+          if (element.checked === false) {
+            element.disabled = false;
+          }
+        });
       }
 
       return d;
