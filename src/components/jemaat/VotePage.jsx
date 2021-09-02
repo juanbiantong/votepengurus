@@ -292,20 +292,29 @@ export default function VotePage() {
                     return (
                       <Fragment key={i}>
                         <tr style={{ width: "100%" }}>
-                          <td className="p-1 m-0 text-center w-50 rounded p-2 mx-auto">
-                            <img
-                              src={item.avatar}
-                              alt="avatar"
-                              className="rounded border border-warning"
+                          <td className="p-1 m-0 text-center w-50 rounded mx-auto">
+                            <div
+                              className="p-2 rounded border border-warning mx-auto col-lg-4 "
                               style={{
                                 opacity: ".8",
-                                width: 100,
+                                boxSizing: "border-box",
                                 verticalAlign: "middle"
                               }}
-                            />
-                            <p>
-                              <strong>{item.name}</strong>
-                            </p>
+                            >
+                              <img
+                                src={item.avatar}
+                                alt="avatar"
+                                className="rounded mb-2"
+                                style={{
+                                  opacity: ".8",
+                                  width: 100,
+                                  verticalAlign: "middle"
+                                }}
+                              />
+                              <p className="m-0">
+                                <strong>{item.name}</strong>
+                              </p>
+                            </div>
                           </td>
                           <td
                             className="p-1 m-0 "
