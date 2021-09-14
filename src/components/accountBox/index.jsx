@@ -159,12 +159,12 @@ export function AccountBox(props) {
               />
               {active === "signin" && (
                 <HeaderContainer>
-                  <HeaderText>Pilih Penatua & Diaken</HeaderText>
-                  <HeaderText>Getor Depok</HeaderText>
-                  <MidleText className="bg-warning mx-auto rounded p-1">
-                    Periode 2021 - 2024
-                  </MidleText>
-                  <SmallText>
+                  <HeaderText>Aplikasi Pemilihan Pengurus</HeaderText>
+                  <HeaderText>PWGT Jemaat Depok</HeaderText>
+                  {/* <MidleText className="bg-warning mx-auto rounded p-1">
+                    Persidangan PWGT Jemaat Depok
+                  </MidleText> */}
+                  <SmallText className="bg-warning rounded p-1">
                     Silahkan masukkan tanggal lahir dan password untuk melakukan
                     pemilihan!
                   </SmallText>
