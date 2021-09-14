@@ -47,13 +47,12 @@ export const BackDrop = styled(motion.div)`
   transform: rotate(60deg);
   top: -250px;
   left: -70px;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background-image: linear-gradient(
+    to right,
+    #02aab0 0%,
+    #00cdac 51%,
+    #02aab0 100%
+  ) !important;
   z-index: 9;
 `;
 

@@ -93,11 +93,11 @@ export function LoginForm(props) {
         />
         <Marginer direction="vertical" margin={10} />
         <Marginer direction="vertical" margin="1.6em" />
-        <Link to="/landingpage">
+        <Link to="/landingpwgt">
           <SubmitButton
             //   onClick={clickSubmit}
             className="w-75 submit-btn p-2 d-flex justify-content-center mx-auto"
-            to="/landingpage"
+            to="/landingpwgt"
             type="submit"
           >
             Login

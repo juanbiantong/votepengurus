@@ -1,5 +1,5 @@
 .nav-cust {
-    background: linear-gradient(90deg, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient( 90deg, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
 }
 
 .main-footer {
@@ -23,12 +23,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    width: 90%;
     align-items: center;
     line-height: 100%;
+    margin: auto;
 }
 
 .table-height {
-    height: 55vh !important;
+    height: 60vh !important;
     border-radius: 10px;
     background: #fff;
 }
@@ -44,14 +46,16 @@
 }
 
 .bg-cust {
-    background: linear-gradient(50deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 20%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient( 50deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 20%, rgba(0, 212, 255, 1) 100%);
 }
 
 .bg-cust2 {
-    background: linear-gradient(90deg, rgba(2, 0, 36, 0.1) 0%, rgba(9, 9, 121, 0.8) 0%, rgba(0, 212, 255, 1) 100%);
+    /* background: linear-gradient( 90deg, rgba(1, 88, 73, 0.863) 0%, rgb(3, 158, 132) 0%, rgb(201, 247, 244) 100%); */
+    background-image: linear-gradient( to right, #02aab0 0%, #00cdac 51%, #02aab0 100%) !important;
 }
 
-.submit-btn {
+
+/* .submit-btn {
     width: 100% !important;
     padding: 11px !important;
     color: #fff !important;
@@ -62,8 +66,8 @@
     cursor: pointer !important;
     transition: all, 240ms ease-in-out !important;
     background: rgb(2, 0, 36) !important;
-    background: linear-gradient(90deg, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%) !important;
-}
+    background: linear-gradient( 90deg, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%) !important;
+} */
 
 .submit-btn:hover {
     filter: brightness(1.03) !important;
@@ -132,51 +136,51 @@ th {
 @keyframes ldio-e9m0nhjt9n-1 {
     0% {
         top: 30px;
-        height: 40px
+        height: 40px;
     }
     50% {
         top: 40px;
-        height: 20px
+        height: 20px;
     }
     100% {
         top: 40px;
-        height: 20px
+        height: 20px;
     }
 }
 
 @keyframes ldio-e9m0nhjt9n-2 {
     0% {
         top: 35px;
-        height: 35px
+        height: 35px;
     }
     50% {
         top: 40px;
-        height: 20px
+        height: 20px;
     }
     100% {
         top: 40px;
-        height: 20px
+        height: 20px;
     }
 }
 
 @keyframes ldio-e9m0nhjt9n-3 {
     0% {
         top: 35px;
-        height: 30px
+        height: 30px;
     }
     50% {
         top: 40px;
-        height: 20px
+        height: 20px;
     }
     100% {
         top: 40px;
-        height: 20px
+        height: 20px;
     }
 }
 
 .ldio-e9m0nhjt9n div {
     position: absolute;
-    width: 20px
+    width: 20px;
 }
 
 .ldio-e9m0nhjt9n div:nth-child(1) {
@@ -227,7 +231,7 @@ th {
 }
 
 .zoom {
-    transition: transform .2s;
+    transition: transform 0.2s;
     /* Animation */
     margin: auto;
 }
@@ -242,16 +246,6 @@ th {
     margin-left: 50%;
 }
 
-.penatua {
-    transform: scale(3);
-    margin-right: 15px
-}
-
-.diaken {
-    transform: scale(3);
-    margin-right: 15px
-}
-
 .img-fluid {
     display: block;
     width: 100%;
@@ -260,8 +254,87 @@ th {
     overflow: scroll;
 }
 
+.container {
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
-/* 
-* {
-    box-sizing: border-box;
-} */
+
+/* Hide the browser's default checkbox */
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: -10px;
+    height: 25px;
+    width: 25px;
+    border: 3px solid #02aab0;
+    border-radius: 15%;
+}
+
+.container input:checked~.checkmark {
+    background-color: #02aab0;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid rgb(255, 230, 0);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* button submit */
+
+.btn-grad {
+    background-image: linear-gradient( to right, #02aab0 0%, #00cdac 51%, #02aab0 100%) !important;
+}
+
+.btn-grad {
+    margin: 10px !important;
+    padding: 15px 45px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    transition: 0.5s !important;
+    background-size: 200% auto !important;
+    color: white !important;
+    box-shadow: 0 0 20px #eee !important;
+    border-radius: 10px !important;
+    display: block !important;
+}
+
+.btn-grad:hover {
+    background-position: right center !important;
+    /* change the direction of the change here */
+    color: #fff !important;
+    text-decoration: none !important;
+}

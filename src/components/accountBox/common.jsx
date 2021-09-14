@@ -54,7 +54,7 @@ export const Input = styled.input`
   }
   &:focus {
     outline: none;
-    border-bottom: 2px solid rgba(9, 9, 121, 0.6);
+    border-bottom: 2px solid #02aab0;
   }
 `;
 
@@ -78,7 +78,7 @@ export const Search = styled.input`
   }
   &:focus {
     outline: none;
-    border-bottom: 2px solid rgba(9, 9, 121, 0.6);
+    border-bottom: 2px solid #02aab0;
   }
 `;
 
@@ -92,12 +92,12 @@ export const SubmitButton = styled.button`
   border-radius: 100px 100px 100px 100px;
   cursor: pointer;
   transition: all, 240ms ease-in-out;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(9, 9, 121, 1) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background-image: linear-gradient(
+    to right,
+    #02aab0 0%,
+    #00cdac 51%,
+    #02aab0 100%
+  ) !important;
   &:hover {
     filter: brightness(1.03);
     border: none;
