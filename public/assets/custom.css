@@ -290,6 +290,23 @@ th {
     background-color: #02aab0;
 }
 
+.container input:disabled~.checkmark {
+    border: 3px solid #a8a39e;
+    background-color: #a8a39e;
+}
+
+.container input:disabled~.checkmark::after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
 .checkmark:after {
     content: "";
     position: absolute;

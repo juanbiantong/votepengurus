@@ -20,35 +20,34 @@ export default function VotePage() {
     fetchData();
   }, []);
 
-  const handleCheckbox = (even) => {
+  const handleCheckbox = (event) => {
     data.map((d, index) => {
       let myCheckbox = document.getElementsByName(`vote`);
-      if (even.target.name === `vote` && even.target.checked) {
+      if (event.target.name === `vote` && event.target.checked) {
         //pilih salahsatu checkbox tiap row
-
         myCheckbox.forEach((element) => {
           element.checked = false;
         });
-        even.target.checked = true;
+        event.target.checked = true;
       }
-      if (even.target.id === `vote${d.id}` && even.target.checked) {
+      if (event.target.id === `vote${d.id}` && event.target.checked) {
         setVote({
           name: d.name,
           category: d.category,
           count: 1
         });
       }
-      if (even.target.id === `vote${d.id}` && even.target.checked === false) {
+      if (event.target.id === `vote${d.id}` && event.target.checked === false) {
         setVote(null);
       }
 
       return d;
     });
   };
-  console.log(vote);
-  const handleVote = (even) => {
-    even.preventDefault();
-    if (even.target.id === "submit") {
+
+  const handleVote = (event) => {
+    event.preventDefault();
+    if (event.target.id === "submit") {
       if (vote === null) {
         Swal.fire({
           position: "center",
@@ -59,7 +58,7 @@ export default function VotePage() {
         });
       } else {
         Swal.fire({
-          html: `<p>Apakah anda yakin mencalonkan <span className="badge badge-warning">${vote.name}</span>?</p>`,
+          html: `<p>Apakah anda yakin mencalonkan <span class="badge badge-warning">${vote.name}</span>?</p>`,
           icon: "question",
           showCancelButton: true,
           cancelButtonColor: "#ec9e0d",
@@ -73,8 +72,9 @@ export default function VotePage() {
               icon: "success",
               confirmButtonColor: "#019185",
               confirmButtonText: "OK"
+            }).then((result) => {
+              window.location = "/";
             });
-            window.location = "/confirmpage";
           }
         });
       }
@@ -150,10 +150,12 @@ export default function VotePage() {
             {/* /.card-header */}
             <div className="card-body table-responsive p-0 col-md-10 table-height">
               <table className="table tableFixHead table-striped table-xs">
-                <thead className="m-0 ">
+                <thead className="m-0">
                   <tr>
-                    <th className="p-1 m-0 text-center">Nama Lengkap</th>
-                    <th className="p-1 m-0 text-center">Jabatan</th>
+                    <th className="p-1 m-0 text-center bg-warning">
+                      Nama Lengkap
+                    </th>
+                    <th className="p-1 m-0 text-center bg-warning">Jabatan</th>
                   </tr>
                 </thead>
                 <tbody id="myTable">

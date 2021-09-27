@@ -5,32 +5,32 @@ import {
   FormContainer,
   Input,
   MutedLink,
-  SubmitButton,
+  SubmitButton
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./index";
-import {BsFillForwardFill} from "react-icons/bs"
+import { BsFillForwardFill } from "react-icons/bs";
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
   return (
-		<BoxContainer>
-			<FormContainer>
-				<Input type="number" autoFocus placeholder="Tanggal Lahir" />
-				<Input type="old_password" placeholder="Password Lama" />
-				<Input type="password" placeholder="Password Baru" />
-				<Input type="password" placeholder="Konfirmasi Password Baru" />
-			</FormContainer>
-			<Marginer direction="vertical" margin={10} />
-			<SubmitButton type="submit">Ganti Password</SubmitButton>
-			<Marginer direction="vertical" margin="1em" />
-			<MutedLink>
-				Klik tanda panah untuk kembali ke halaman sebelumnya!{' '}
-				<BoldLink href="#" onClick={switchToSignin}>
-					<BsFillForwardFill />
-				</BoldLink>
-			</MutedLink>
-		</BoxContainer>
+    <BoxContainer>
+      <FormContainer>
+        <Input type="number" autoFocus placeholder="Tanggal Lahir" />
+        <Input type="old_password" placeholder="Password Lama" />
+        <Input type="password" placeholder="Password Baru" />
+        <Input type="password" placeholder="Konfirmasi Password Baru" />
+      </FormContainer>
+      <Marginer direction="vertical" margin={10} />
+      <SubmitButton type="submit">Ganti Password</SubmitButton>
+      <Marginer direction="vertical" margin="1em" />
+      <MutedLink>
+        Klik tanda panah untuk kembali ke halaman sebelumnya!{" "}
+        <BoldLink href="#" onClick={switchToSignin}>
+          <BsFillForwardFill />
+        </BoldLink>
+      </MutedLink>
+    </BoxContainer>
   );
 }

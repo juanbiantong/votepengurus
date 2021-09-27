@@ -141,7 +141,7 @@ function App() {
       setOpenApp(true);
       clearInterval(countdownfunction);
     }
-  });
+  }, 1000);
   return (
     <>
       {openApp === false ? (
@@ -224,6 +224,7 @@ function App() {
               <Route exact path="/admin" component={Admin} />
               <Route exact path="/landingpwgt" component={Pwgt}></Route>
               <Route exact path="/votepage" component={Pwgt}></Route>
+              <Route exact path="/votepenasehat" component={Pwgt}></Route>
               <Route exact path="/confirmpage" component={Pwgt}></Route>
               <Route exact path="/resultpage" component={Pwgt}></Route>
             </AuthContext.Provider>
