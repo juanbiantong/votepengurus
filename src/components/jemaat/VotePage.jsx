@@ -58,7 +58,7 @@ export default function VotePage() {
             icon: "warning",
             html: "<strong>Batas Maksimum Pilihan Penatua</strong>",
             showConfirmButton: true,
-            confirmButtonColor: "#ec9e0d"
+            confirmButtonColor: "#ec9e0d",
           });
         }
       }
@@ -84,7 +84,7 @@ export default function VotePage() {
             icon: "warning",
             html: "<strong>Batas Maksimum Pilihan Diaken</strong>",
             showConfirmButton: true,
-            confirmButtonColor: "#ec9e0d"
+            confirmButtonColor: "#ec9e0d",
           });
         }
       }
@@ -139,7 +139,6 @@ export default function VotePage() {
       }).length
     );
   };
-  console.log(data, "sss");
   //handle confirmatin checkbox
   const handleDisable = (even) => {
     let penatuaCheck = Array.from(document.getElementsByClassName(`penatua`));
@@ -151,7 +150,7 @@ export default function VotePage() {
         icon: "warning",
         html: "<strong>Anda belum memilih penatua ataupun diaken!</strong>",
         showConfirmButton: true,
-        confirmButtonColor: "#ec9e0d"
+        confirmButtonColor: "#ec9e0d",
       });
       $(".vote").prop("checked", false);
     }
@@ -209,7 +208,6 @@ export default function VotePage() {
 
   //untuk fungsi search berdasarkan sektor dan nama balon
   $(document).ready(function () {
-
     //filter search ballon
     $("#myInput").on("keyup", function () {
       let value = $(this).val().toLowerCase();
@@ -298,7 +296,7 @@ export default function VotePage() {
                               style={{
                                 opacity: ".8",
                                 boxSizing: "border-box",
-                                verticalAlign: "middle"
+                                verticalAlign: "middle",
                               }}
                             >
                               <img
@@ -308,7 +306,7 @@ export default function VotePage() {
                                 style={{
                                   opacity: ".8",
                                   width: 100,
-                                  verticalAlign: "middle"
+                                  verticalAlign: "middle",
                                 }}
                               />
                               <p className="m-0">
@@ -320,7 +318,7 @@ export default function VotePage() {
                             className="p-1 m-0 "
                             style={{
                               width: "50%",
-                              verticalAlign: "middle"
+                              verticalAlign: "middle",
                             }}
                           >
                             <form className="custom2">

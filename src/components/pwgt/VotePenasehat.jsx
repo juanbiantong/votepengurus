@@ -95,8 +95,6 @@ export default function VotePenasehat() {
     );
   };
 
-  console.log(vote, "ssss");
-
   //handle confirmatin checkbox
   const handleDisable = (even) => {
     let penasehatCheck = Array.from(
@@ -214,7 +212,9 @@ export default function VotePenasehat() {
               <table className="table tableFixHead table-bordered table-striped table-xs">
                 <thead className="m-0 ">
                   <tr>
-                    <th className="p-1 m-0 text-center bg-warning">Nama Lengkap</th>
+                    <th className="p-1 m-0 text-center bg-warning">
+                      Nama Lengkap
+                    </th>
                     <th className="p-1 m-0 text-center bg-warning">Jabatan</th>
                   </tr>
                 </thead>
