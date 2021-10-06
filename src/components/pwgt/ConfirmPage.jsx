@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -56,9 +56,9 @@ export default function ConfirmPage() {
             </div>
           </div>
           <div className="row m-2 justify-content-center">
-            <div className="col-sm-2 justify-content-center mx-auto">
+            <div className="col-sm-6 justify-content-center mx-auto">
               <Link
-                className="btn submit-btn mx-auto p-1 m-0 justify-content-center"
+                className="btn btn-grad submit-btn mx-auto p-1 m-0 justify-content-center"
                 to="/resultpage"
               >
                 Tutup Aplikasi

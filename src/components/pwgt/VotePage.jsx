@@ -9,6 +9,7 @@ import Header from "./Header";
 export default function VotePage() {
   const [data, setData] = useState([]);
   const [vote, setVote] = useState(null);
+  const [disable, setDisable] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,11 +35,13 @@ export default function VotePage() {
         setVote({
           name: d.name,
           category: d.category,
-          count: 1
+          count: 1,
         });
+        setDisable(false);
       }
       if (event.target.id === `vote${d.id}` && event.target.checked === false) {
         setVote(null);
+        setDisable(true);
       }
 
       return d;
@@ -48,36 +51,26 @@ export default function VotePage() {
   const handleVote = (event) => {
     event.preventDefault();
     if (event.target.id === "submit") {
-      if (vote === null) {
-        Swal.fire({
-          position: "center",
-          icon: "warning",
-          html: "<strong>Anda belum memilih bakal calon!</strong>",
-          showConfirmButton: true,
-          confirmButtonColor: "#ec9e0d"
-        });
-      } else {
-        Swal.fire({
-          html: `<p>Apakah anda yakin mencalonkan <span class="badge badge-warning">${vote.name}</span>?</p>`,
-          icon: "question",
-          showCancelButton: true,
-          cancelButtonColor: "#ec9e0d",
-          confirmButtonColor: "#019185",
-          cancelButtonText: "Tidak",
-          confirmButtonText: "Yakin"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire({
-              html: `<p>Selamat, pilihan anda telah tersimpan</p>`,
-              icon: "success",
-              confirmButtonColor: "#019185",
-              confirmButtonText: "OK"
-            }).then((result) => {
-              window.location = "/";
-            });
-          }
-        });
-      }
+      Swal.fire({
+        html: `<p>Apakah anda yakin mencalonkan <span class="badge badge-warning">${vote.name}</span>?</p>`,
+        icon: "question",
+        showCancelButton: true,
+        cancelButtonColor: "#ec9e0d",
+        confirmButtonColor: "#019185",
+        cancelButtonText: "Tidak",
+        confirmButtonText: "Yakin",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            html: `<p>Selamat, pilihan anda telah tersimpan</p>`,
+            icon: "success",
+            confirmButtonColor: "#019185",
+            confirmButtonText: "OK",
+          }).then((result) => {
+            window.location = "/";
+          });
+        }
+      });
     }
   };
 
@@ -169,7 +162,7 @@ export default function VotePage() {
                               style={{
                                 opacity: ".8",
                                 boxSizing: "border-box",
-                                verticalAlign: "middle"
+                                verticalAlign: "middle",
                               }}
                             >
                               <p className="m-0">
@@ -181,7 +174,7 @@ export default function VotePage() {
                             className="p-1 m-0 "
                             style={{
                               width: "50%",
-                              verticalAlign: "middle"
+                              verticalAlign: "middle",
                             }}
                           >
                             <form className="custom2">
@@ -214,6 +207,7 @@ export default function VotePage() {
                 id="submit"
                 className="w-50 btn btn-grad mx-auto p-1 m-0 justify-content-center"
                 onClick={handleVote}
+                disabled={disable}
               >
                 Vote
               </button>

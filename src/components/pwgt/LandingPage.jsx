@@ -8,7 +8,7 @@ function LandingPage() {
     <div>
       <Header />
       <div className="mx-auto col-md-8">
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 mt-4 border border-warning"
@@ -16,7 +16,7 @@ function LandingPage() {
             Balon Ketua
           </button>
         </Link>
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 m-3 border border-warning"
@@ -24,7 +24,7 @@ function LandingPage() {
             Calon Ketua
           </button>
         </Link>
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 m-3 border border-warning"
@@ -32,7 +32,7 @@ function LandingPage() {
             Balon Sekertaris
           </button>
         </Link>
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 m-3 border border-warning"
@@ -41,7 +41,7 @@ function LandingPage() {
           </button>
         </Link>
 
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 m-3 border border-warning"
@@ -49,7 +49,7 @@ function LandingPage() {
             Balon Bendahara
           </button>
         </Link>
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 m-3 border border-warning"
@@ -65,7 +65,7 @@ function LandingPage() {
             Pemilihan Penasehat
           </button>
         </Link>
-        <Link to="/votepenasehat">
+        <Link to="/votepage">
           <button
             id="submit"
             className="btn btn-grad mx-auto p-2 m-3 border border-warning"
