@@ -7,17 +7,72 @@ function LandingPage() {
   return (
     <div>
       <Header />
-      <div className="row m-2 justify-content-center">
-        <div className="col-sm-6 justify-content-center mx-auto">
-          <Link to="/votepenasehat">
-            <button
-              id="submit"
-              className="w-50 btn btn-grad mx-auto p-1 m-0 justify-content-center"
-            >
-              Lanjutkan
-            </button>
-          </Link>
-        </div>
+      <div className="mx-auto col-md-8">
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 mt-4 border border-warning"
+          >
+            Balon Ketua
+          </button>
+        </Link>
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Calon Ketua
+          </button>
+        </Link>
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Balon Sekertaris
+          </button>
+        </Link>
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Calon Sekertaris
+          </button>
+        </Link>
+
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Balon Bendahara
+          </button>
+        </Link>
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Calon Bendahara
+          </button>
+        </Link>
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Pemilihan Penasehat
+          </button>
+        </Link>
+        <Link to="/votepenasehat">
+          <button
+            id="submit"
+            className="btn btn-grad mx-auto p-2 m-3 border border-warning"
+          >
+            Pemilihan ulang
+          </button>
+        </Link>
       </div>
       <Footer />
     </div>
