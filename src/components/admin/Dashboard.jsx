@@ -75,7 +75,6 @@ export default function Dashboard() {
 
   return (
     <div className="content-wrapper">
-      <section className="content">
         <div className="container-fluid pt-3">
           {/* Small boxes (Stat box) */}
           <div className="row">
@@ -305,7 +304,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      </section>
     </div>
   );
 }

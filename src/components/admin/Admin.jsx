@@ -1,4 +1,3 @@
-// import  from 'react';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import Menu from './Menu';

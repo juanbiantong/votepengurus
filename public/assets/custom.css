@@ -354,3 +354,82 @@ th {
     color: #fff !important;
     text-decoration: none !important;
 }
+
+.nav-drop {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.nav-drop label {
+    color: white;
+    display: block;
+    cursor: pointer;
+    line-height: 20px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.button span {
+    float: right;
+    line-height: 20px;
+}
+
+.button span.rotate {
+    transform: rotate(-180deg);
+}
+
+.nav-drop ul {
+    width: 100%;
+    list-style: none;
+    border-radius: 5px;
+    display: none;
+}
+
+[id^=btn]:checked+ul {
+    display: block;
+}
+
+.nav-drop ul li {
+    line-height: 40px;
+    cursor: pointer;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.nav-drop ul li label {
+    width: 100%;
+}
+
+.nav-drop ul li {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-drop ul li :hover,
+.nav-drop ul li label:hover {
+    color: cyan;
+}
+
+.nav-drop ul ul {
+    position: static;
+}
+
+.nav-drop ul ul li {
+    line-height: 30px;
+    border-bottom: none;
+}
+
+.nav-drop ul ul li {
+    color: #e6e6e6;
+}
+
+.nav-drop ul li span.rotate {
+    transform: rotate(-180deg);
+}
+
+input {
+    display: none;
+}
