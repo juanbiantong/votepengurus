@@ -345,7 +345,7 @@ th {
     box-shadow: 0 0 20px #eee !important;
     border-radius: 10px !important;
     display: block !important;
-    width: 50%;
+    width: 100%;
 }
 
 .btn-grad:hover {
@@ -353,13 +353,4 @@ th {
     /* change the direction of the change here */
     color: #fff !important;
     text-decoration: none !important;
-}
-
-@media (max-width: 800px) {
-    .box-role {
-        flex-direction: column;
-    }
-    /* .btn-grad {
-        width: 50%;
-    } */
 }
