@@ -73,7 +73,7 @@ export function LoginForm(props) {
       {/* {redirectUser()} */}
       <FormContainer>
         <Input
-          type="number"
+          type="text"
           id="tglLahir"
           onChange={handleChange("idLogin")}
           //   value={idLogin}
