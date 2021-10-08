@@ -430,6 +430,6 @@ th {
     transform: rotate(-180deg);
 }
 
-input {
+input[type='checkbox'] {
     display: none;
 }

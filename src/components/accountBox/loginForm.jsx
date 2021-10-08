@@ -80,7 +80,7 @@ export function LoginForm(props) {
           name="idLogin"
           required
           autoFocus
-          placeholder="Tanggal Lahir Contoh: 25121990"
+          placeholder="Username"
         />
 
         <Input

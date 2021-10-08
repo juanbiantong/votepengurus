@@ -82,8 +82,8 @@ export const MidleText = styled.h5`
 `;
 export const SmallText = styled.p`
   color: #fff;
-  font-weight: 500;
-  font-size: 11px;
+  font-weight: 700;
+  font-size: 12px;
   z-index: 10;
   margin: 0;
   margin-top: 7px;
@@ -164,8 +164,8 @@ export function AccountBox(props) {
                   {/* <MidleText className="bg-warning mx-auto rounded p-1">
                     Persidangan PWGT Jemaat Depok
                   </MidleText> */}
-                  <SmallText className="bg-warning rounded p-1">
-                    Silahkan masukkan tanggal lahir dan password untuk melakukan
+                  <SmallText className="bg-warning rounded p-2">
+                    Silahkan masukkan Username dan Password untuk melakukan
                     pemilihan!
                   </SmallText>
                 </HeaderContainer>
