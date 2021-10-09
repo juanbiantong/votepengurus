@@ -66,9 +66,15 @@ export default function VotePage() {
             icon: "success",
             confirmButtonColor: "#019185",
             confirmButtonText: "OK",
-          }).then((result) => {
-            window.location = "/";
-          });
+          })
+            .then((result) => {
+              if (result.isConfirmed) {
+              window.location = "/confirmpage";
+              }
+            })
+            .catch((o_o)=> {
+              console.error(o_o); // "oh, no!"
+            });
         }
       });
     }

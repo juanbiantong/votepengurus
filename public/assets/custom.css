@@ -430,6 +430,13 @@ th {
     transform: rotate(-180deg);
 }
 
-input[type='checkbox'] {
+#btn-ketua,
+#btn-sek,
+#btn-ben,
+#btn-ul {
     display: none;
+}
+
+.disable-link {
+    pointer-events: none;
 }
