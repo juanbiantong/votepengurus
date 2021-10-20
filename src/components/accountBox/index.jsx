@@ -49,9 +49,9 @@ export const BackDrop = styled(motion.div)`
   left: -70px;
   background-image: linear-gradient(
     to right,
-    #02aab0 0%,
-    #00cdac 51%,
-    #02aab0 100%
+    #026ab0 0%,
+    #0093cd 51%,
+    #0727b8 90%
   ) !important;
   z-index: 9;
 `;

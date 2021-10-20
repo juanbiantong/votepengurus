@@ -56,7 +56,7 @@ export default function VotePage() {
         icon: "question",
         showCancelButton: true,
         cancelButtonColor: "#ec9e0d",
-        confirmButtonColor: "#019185",
+        confirmButtonColor: "#1044d3",
         cancelButtonText: "Tidak",
         confirmButtonText: "Yakin",
       }).then((result) => {
@@ -64,15 +64,15 @@ export default function VotePage() {
           Swal.fire({
             html: `<p>Selamat, pilihan anda telah tersimpan</p>`,
             icon: "success",
-            confirmButtonColor: "#019185",
+            confirmButtonColor: "#1044d3",
             confirmButtonText: "OK",
           })
             .then((result) => {
               if (result.isConfirmed) {
-              window.location = "/confirmpage";
+                window.location = "/landingpwgt";
               }
             })
-            .catch((o_o)=> {
+            .catch((o_o) => {
               console.error(o_o); // "oh, no!"
             });
         }
@@ -166,7 +166,6 @@ export default function VotePage() {
                             <div
                               className="p-2 rounded border mx-auto col-lg-4 "
                               style={{
-                                opacity: ".8",
                                 boxSizing: "border-box",
                                 verticalAlign: "middle",
                               }}
@@ -177,15 +176,14 @@ export default function VotePage() {
                             </div>
                           </td>
                           <td
-                            className="p-1 m-0 "
+                            className="p-1 m-0 w-50"
                             style={{
-                              width: "50%",
                               verticalAlign: "middle",
                             }}
                           >
-                            <form className="custom2">
-                              <div className="">
-                                <label className="container">
+                            <form className="custom2 m-0 w-100 p-0">
+                              <div className="d-flex m-0">
+                                <label className="container d-flex m-0 w-100">
                                   <input
                                     id={`vote${item.id}`}
                                     type="checkbox"
@@ -195,8 +193,8 @@ export default function VotePage() {
                                   />
                                   <span className="checkmark" />
                                 </label>
+                                <strong className="">Balon ketua</strong>
                               </div>
-                              <strong className="ml-2">{item.category}</strong>
                             </form>
                           </td>
                         </tr>

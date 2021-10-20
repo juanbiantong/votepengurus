@@ -47,7 +47,7 @@ function LandingPage() {
               className="btn btn-grad mx-auto p-2 border"
               disabled={role === 2 ? false : true}
             >
-              Balon Wakil Ketua
+              Balon Sekretaris
             </button>
           </Link>
           <span>&emsp;</span>
@@ -60,7 +60,7 @@ function LandingPage() {
               className="btn btn-grad mx-auto p-2 border"
               disabled={role === 3 ? false : true}
             >
-              Calon Wakil Ketua
+              Calon Sektetaris
             </button>
           </Link>
         </div>
@@ -74,7 +74,7 @@ function LandingPage() {
               className="btn btn-grad mx-auto p-2 border"
               disabled={role === 4 ? false : true}
             >
-              Balon Sekretaris
+              Balon Bendahara
             </button>
           </Link>
           <span>&emsp;</span>
@@ -87,113 +87,19 @@ function LandingPage() {
               className="btn btn-grad mx-auto p-2 border"
               disabled={role === 5 ? false : true}
             >
-              Calon Sekretaris
-            </button>
-          </Link>
-        </div>
-        <div className="d-flex justify-content-center m-3">
-          <Link
-            to={role === 6 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 6 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 6 ? false : true}
-            >
-              Balon Wakil Sekretaris
-            </button>
-          </Link>
-          <span>&emsp;</span>
-          <Link
-            to={role === 7 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 7 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 7 ? false : true}
-            >
-              Calon Wakil Sekretaris
-            </button>
-          </Link>
-        </div>
-        <div className="d-flex justify-content-center m-3">
-          <Link
-            to={role === 8 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 8 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 8 ? false : true}
-            >
-              Balon Bendahara
-            </button>
-          </Link>
-          <span>&emsp;</span>
-          <Link
-            to={role === 9 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 9 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 9 ? false : true}
-            >
               Calon Bendahara
             </button>
           </Link>
         </div>
         <div className="d-flex justify-content-center m-3">
           <Link
-            to={role === 10 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 10 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 10 ? false : true}
-            >
-              Balon Wakil Bendahara
-            </button>
-          </Link>
-          <span>&emsp;</span>
-          <Link
-            to={role === 11 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 11 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 11 ? false : true}
-            >
-              Calon Wakil Bendahara
-            </button>
-          </Link>
-        </div>
-        <div className="d-flex justify-content-center m-3">
-          <Link
-            to={role === 12 ? "/votepage" : "#"}
-            style={{ pointerEvents: role === 12 ? "unset" : "none" }}
-          >
-            <button
-              id="submit"
-              className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 12 ? false : true}
-            >
-              Pemilihan Penasehat
-            </button>
-          </Link>
-          <span>&emsp;</span>
-          <Link
-            to={role === 13 ? "/votepage" : "#"}
+            to={role === 6 ? "/votepage" : "#"}
             style={{ pointerEvents: role === 13 ? "unset" : "none" }}
           >
             <button
               id="submit"
               className="btn btn-grad mx-auto p-2 border"
-              disabled={role === 13 ? false : true}
+              disabled={role === 6 ? false : true}
             >
               Pemilihan Ulang
             </button>

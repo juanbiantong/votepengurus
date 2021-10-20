@@ -51,7 +51,9 @@
 
 .bg-cust2 {
     /* background: linear-gradient( 90deg, rgba(1, 88, 73, 0.863) 0%, rgb(3, 158, 132) 0%, rgb(201, 247, 244) 100%); */
-    background-image: linear-gradient( to right, #02aab0 0%, #00cdac 51%, #02aab0 100%) !important;
+    background-image: linear-gradient( to right, #026ab0 0%,
+    #0093cd 51%,
+    #0727b8 90%) !important;
 }
 
 
@@ -261,6 +263,8 @@ th {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin: 0;
+    padding: 0 !important;
 }
 
 
@@ -272,6 +276,7 @@ th {
     cursor: pointer;
     height: 0;
     width: 0;
+    
 }
 
 
@@ -279,15 +284,15 @@ th {
 
 .checkmark {
     position: absolute;
-    top: -10px;
     height: 25px;
     width: 25px;
-    border: 3px solid #02aab0;
+    border: 3px solid #026ab0;
     border-radius: 15%;
 }
 
 .container input:checked~.checkmark {
-    background-color: #02aab0;
+    background-color: #026ab0;
+
 }
 
 .container input:disabled~.checkmark {
@@ -329,11 +334,12 @@ th {
     transform: rotate(45deg);
 }
 
-
 /* button submit */
 
 .btn-grad {
-    background-image: linear-gradient( to right, #02aab0 0%, #00cdac 51%, #02aab0 100%) !important;
+    background-image: linear-gradient( to right, #026ab0 0%,
+    #0093cd 51%,
+    #0727b8 90%) !important;
 }
 
 .btn-grad {
@@ -410,7 +416,7 @@ th {
 
 .nav-drop ul li :hover,
 .nav-drop ul li label:hover {
-    color: cyan;
+    color: #1320db;
 }
 
 .nav-drop ul ul {

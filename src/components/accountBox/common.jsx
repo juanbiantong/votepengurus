@@ -54,7 +54,7 @@ export const Input = styled.input`
   }
   &:focus {
     outline: none;
-    border-bottom: 2px solid #02aab0;
+    border-bottom: 2px solid #0230b0;
   }
 `;
 
@@ -94,9 +94,9 @@ export const SubmitButton = styled.button`
   transition: all, 240ms ease-in-out;
   background-image: linear-gradient(
     to right,
-    #02aab0 0%,
-    #00cdac 51%,
-    #02aab0 100%
+    #026ab0 0%,
+    #0093cd 51%,
+    #0727b8 90%
   ) !important;
   &:hover {
     filter: brightness(1.03);
