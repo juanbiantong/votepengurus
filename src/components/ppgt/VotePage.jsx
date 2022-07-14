@@ -1,8 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
-import axios from "axios";
 import $ from "jquery";
 import Footer from "./Footer";
-// import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Header from "./Header";
 
@@ -11,22 +9,29 @@ export default function VotePage() {
   const [vote, setVote] = useState(null);
   const [disable, setDisable] = useState(true);
 
+  const next = window.localStorage.getItem("next");
+
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(
-        "https://my-json-server.typicode.com/JuanBiantong/db_anggota/anggota"
-      );
-      setData(res.data);
+      const balonKetua = window.localStorage.getItem("balonKetua");
+      const calonKetua = window.localStorage.getItem("calonKetua");
+      if (next === null) {
+        const res = await JSON.parse(balonKetua);
+        setData(res);
+      } else {
+        const res = await JSON.parse(calonKetua);
+        setData(res);
+      }
     };
     fetchData();
-  }, []);
+  }, [next]);
 
-  const handleCheckbox = (event) => {
+  const handleCheckbox = event => {
     data.map((d, index) => {
       let myCheckbox = document.getElementsByName(`vote`);
       if (event.target.name === `vote` && event.target.checked) {
         //pilih salahsatu checkbox tiap row
-        myCheckbox.forEach((element) => {
+        myCheckbox.forEach(element => {
           element.checked = false;
         });
         event.target.checked = true;
@@ -48,7 +53,7 @@ export default function VotePage() {
     });
   };
 
-  const handleVote = (event) => {
+  const handleVote = event => {
     event.preventDefault();
     if (event.target.id === "submit") {
       Swal.fire({
@@ -59,7 +64,7 @@ export default function VotePage() {
         confirmButtonColor: "#1044d3",
         cancelButtonText: "Tidak",
         confirmButtonText: "Yakin",
-      }).then((result) => {
+      }).then(result => {
         if (result.isConfirmed) {
           Swal.fire({
             html: `<p>Selamat, pilihan anda telah tersimpan</p>`,
@@ -67,12 +72,18 @@ export default function VotePage() {
             confirmButtonColor: "#1044d3",
             confirmButtonText: "OK",
           })
-            .then((result) => {
+            .then(result => {
               if (result.isConfirmed) {
-                window.location = "/landingpwgt";
+                console.log(next, "ceknext");
+                if (next === null) {
+                  window.localStorage.setItem("next", 1);
+                } else {
+                  window.localStorage.setItem("next", 2);
+                }
+                window.location = "/landingppgt";
               }
             })
-            .catch((o_o) => {
+            .catch(o_o => {
               console.error(o_o); // "oh, no!"
             });
         }
@@ -109,20 +120,20 @@ export default function VotePage() {
     });
   });
   return (
-    <div className="row justify-content-center w-100 mx-auto">
-      <div className="col-md-12 p-0">
-        <div className="card border-radius-15">
+    <div className='row justify-content-center w-100 mx-auto'>
+      <div className='col-md-12 p-0'>
+        <div className='card border-radius-15'>
           <Header />
-          <div className="card card-widget widget-user-2 m-0 border-radius-15">
+          <div className='card card-widget widget-user-2 m-0 border-radius-15'>
             {/* Add the bg color to the header using any of the bg-* classes */}
 
-            <div className="card-footer bg-light pr-2 pl-2">
-              <ul className="nav flex-column ">
-                <li className="nav-item ">
+            <div className='card-footer bg-light pr-2 pl-2'>
+              <ul className='nav flex-column '>
+                <li className='nav-item '>
                   <p>
-                    <strong className="mr-2 ml-2 p-0 float-right">
+                    <strong className='mr-2 ml-2 p-0 float-right'>
                       Balon pilihan anda:
-                      <strong className="badge badge-warning m-1 p-2">
+                      <strong className='badge badge-warning m-1 p-2'>
                         {vote === null ? "Anda belum memilih" : vote.name}
                       </strong>
                     </strong>
@@ -131,69 +142,69 @@ export default function VotePage() {
               </ul>
             </div>
           </div>
-          <div className="row custom m-1 col-md-11 mx-auto justify-content-center pb-3 pr-1 pl-1 bg-cust2">
-            <div className="card-header col-md-10 pt-0 pb-0 mt-2 mb-0">
-              <h6 className="float-left text-bold text-white">DAFTAR BALON</h6>
-              <div className="card-tools">
-                <div className="input-group input-group-sm search-width">
+          <div className='row custom m-1 col-md-11 mx-auto justify-content-center pb-3 pr-1 pl-1 bg-cust2'>
+            <div className='card-header col-md-10 pt-0 pb-0 mt-2 mb-0'>
+              <h6 className='float-left text-bold text-white'>DAFTAR BALON</h6>
+              <div className='card-tools'>
+                <div className='input-group input-group-sm search-width'>
                   <input
-                    type="text"
-                    name="table_search"
-                    id="myInput"
-                    className="form-control float-right"
-                    placeholder="Cari nama calon.."
+                    type='text'
+                    name='table_search'
+                    id='myInput'
+                    className='form-control float-right'
+                    placeholder='Cari nama calon..'
                   />
                 </div>
               </div>
             </div>
             {/* /.card-header */}
-            <div className="card-body table-responsive p-0 col-md-10 table-height">
-              <table className="table tableFixHead table-striped table-xs">
-                <thead className="m-0">
+            <div className='card-body table-responsive p-0 col-md-10 table-height'>
+              <table className='table tableFixHead table-striped table-xs'>
+                <thead className='m-0'>
                   <tr>
-                    <th className="p-1 m-0 text-center bg-warning">
+                    <th className='p-1 m-0 text-center bg-warning'>
                       Nama Lengkap
                     </th>
-                    <th className="p-1 m-0 text-center bg-warning">Jabatan</th>
+                    <th className='p-1 m-0 text-center bg-warning'>Jabatan</th>
                   </tr>
                 </thead>
-                <tbody id="myTable">
+                <tbody id='myTable'>
                   {data.map((item, i) => {
                     return (
                       <Fragment key={i}>
                         <tr style={{ width: "100%" }}>
-                          <td className="p-1 m-0 text-center w-50 rounded mx-auto">
+                          <td className='p-1 m-0 text-center w-50 rounded mx-auto'>
                             <div
-                              className="p-2 rounded border mx-auto col-lg-4 "
+                              className='p-2 rounded border mx-auto col-lg-4 '
                               style={{
                                 boxSizing: "border-box",
                                 verticalAlign: "middle",
                               }}
                             >
-                              <p className="m-0">
+                              <p className='m-0'>
                                 <strong>{item.name}</strong>
                               </p>
                             </div>
                           </td>
                           <td
-                            className="p-1 m-0 w-50"
+                            className='p-1 m-0 w-50'
                             style={{
                               verticalAlign: "middle",
                             }}
                           >
-                            <form className="custom2 m-0 w-100 p-0">
-                              <div className="d-flex m-0">
-                                <label className="container d-flex m-0 w-100">
+                            <form className='custom2 m-0 w-100 p-0'>
+                              <div className='d-flex m-0'>
+                                <label className='container d-flex m-0 w-100'>
                                   <input
                                     id={`vote${item.id}`}
-                                    type="checkbox"
+                                    type='checkbox'
                                     name={`vote`}
                                     onChange={handleCheckbox}
                                     className={`vote`}
                                   />
-                                  <span className="checkmark" />
+                                  <span className='checkmark' />
                                 </label>
-                                <strong className="">Balon ketua</strong>
+                                <strong className=''>Balon ketua</strong>
                               </div>
                             </form>
                           </td>
@@ -205,11 +216,11 @@ export default function VotePage() {
               </table>
             </div>
           </div>
-          <div className="row m-2 justify-content-center">
-            <div className="col-sm-6 justify-content-center mx-auto">
+          <div className='row m-2 justify-content-center'>
+            <div className='col-sm-6 justify-content-center mx-auto'>
               <button
-                id="submit"
-                className="w-50 btn btn-grad mx-auto p-1 m-0 justify-content-center"
+                id='submit'
+                className='w-50 btn btn-grad mx-auto p-1 m-0 justify-content-center'
                 onClick={handleVote}
                 disabled={disable}
               >

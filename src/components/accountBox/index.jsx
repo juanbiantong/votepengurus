@@ -1,11 +1,7 @@
-import React, { useState, createContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
-// import { AccountContext } from "./accountContext";
-import { SignupForm } from "./signupForm";
-
-export const AccountContext = createContext();
 
 export const AppContainer = styled.div`
   width: 100%;
@@ -102,91 +98,43 @@ export const backdropVariants = {
     width: "233%",
     height: "1050px",
     borderRadius: "20%",
-    transform: "rotate(60deg)"
+    transform: "rotate(60deg)",
   },
   collapsed: {
     width: "160%",
     height: "550px",
     borderRadius: "50%",
-    transform: "rotate(60deg)"
-  }
+    transform: "rotate(60deg)",
+  },
 };
 
 export const expandingTransition = {
   type: "spring",
   duration: 2.3,
-  stiffness: 30
+  stiffness: 30,
 };
 
 export function AccountBox(props) {
-  const [isExpanded, setExpanded] = useState(false);
-  const [active, setActive] = useState("signin");
-
-  const playExpandingAnimation = () => {
-    setExpanded(true);
-    setTimeout(() => {
-      setExpanded(false);
-    }, expandingTransition.duration * 1000 - 1500);
-  };
-
-  const switchToSignup = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("signup");
-    }, 400);
-  };
-
-  const switchToSignin = () => {
-    playExpandingAnimation();
-    setTimeout(() => {
-      setActive("signin");
-    }, 400);
-  };
-
-  const contextValue = { switchToSignup, switchToSignin };
-
   return (
-    <AccountContext.Provider value={contextValue}>
-      <React.Fragment>
-        <AppContainer>
-          <BoxContainer>
-            <TopContainer>
-              <BackDrop
-                initial={false}
-                animate={isExpanded ? "expanded" : "collapsed"}
-                variants={backdropVariants}
-                transition={expandingTransition}
-              />
-              {active === "signin" && (
-                <HeaderContainer>
-                  <HeaderText>Aplikasi Pemilihan Pengurus</HeaderText>
-                  <HeaderText>PWGT Jemaat Depok</HeaderText>
-                  {/* <MidleText className="bg-warning mx-auto rounded p-1">
-                    Persidangan PWGT Jemaat Depok
-                  </MidleText> */}
-                  <SmallText className="bg-warning rounded p-2">
-                    Silahkan masukkan Username dan Password untuk melakukan
-                    pemilihan!
-                  </SmallText>
-                </HeaderContainer>
-              )}
-              {active === "signup" && (
-                <HeaderContainer>
-                  <HeaderText>Ganti</HeaderText>
-                  <HeaderText>Password</HeaderText>
-                  <SmallText>
-                    Jangan lupa untuk mencatat password baru yang telah dibuat!
-                  </SmallText>
-                </HeaderContainer>
-              )}
-            </TopContainer>
-            <InnerContainer>
-              {active === "signin" && <LoginForm />}
-              {active === "signup" && <SignupForm />}
-            </InnerContainer>
-          </BoxContainer>
-        </AppContainer>
-      </React.Fragment>
-    </AccountContext.Provider>
+    <React.Fragment>
+      <AppContainer>
+        <BoxContainer>
+          <TopContainer>
+            <BackDrop />
+            <HeaderContainer>
+              <HeaderText>Aplikasi Pemilihan Pengurus</HeaderText>
+              <HeaderText>PPGT Jemaat Depok</HeaderText>
+              <SmallText className='bg-warning rounded p-2'>
+                Silahkan masukkan Username dan Password untuk melakukan
+                pemilihan!
+              </SmallText>
+            </HeaderContainer>
+          </TopContainer>
+          <InnerContainer>
+            <LoginForm />
+          </InnerContainer>
+        </BoxContainer>
+      </AppContainer>
+    </React.Fragment>
   );
 }
